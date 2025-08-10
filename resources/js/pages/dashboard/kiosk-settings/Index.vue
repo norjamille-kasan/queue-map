@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import PageContent from '@/components/dashboard/PageContent.vue';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import AppLayout from '@/layouts/dashboard/AppLayout.vue';
 import dashboard from '@/routes/dashboard';
@@ -29,10 +31,17 @@ const props = defineProps<{
 <template>
     <Head title="Kiosk settings" />
     <PageContent :breadcrumbs="breadcrumbs">
-        <div class="flex items-center justify-between gap-2"></div>
-        <div class="overflow-hidden border">
+        <div class="flex items-center justify-between gap-2">
+            <div>
+                <Input class="sm:w-80" />
+            </div>
+            <div>
+                <Button>New Kiosk</Button>
+            </div>
+        </div>
+        <div class="overflow-hidden rounded-lg border">
             <Table>
-                <TableHeader>
+                <TableHeader class="bg-muted/40">
                     <TableRow>
                         <TableHead> Name </TableHead>
                         <TableHead> Floor Plan</TableHead>
