@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import dashboard from '@/routes/dashboard';
 
 const passwordInput = ref<HTMLInputElement | null>(null);
 
@@ -28,7 +29,7 @@ const form = useForm({
 const deleteUser = (e: Event) => {
     e.preventDefault();
 
-    form.delete(route('profile.destroy'), {
+    form.submit(dashboard.profile.destroy(), {
         preserveScroll: true,
         onSuccess: () => closeModal(),
         onError: () => passwordInput.value?.focus(),

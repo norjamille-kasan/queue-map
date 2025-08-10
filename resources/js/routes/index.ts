@@ -1,6 +1,6 @@
 import { queryParams, type QueryParams } from './../wayfinder'
 /**
- * @see routes/web.php:6
+ * @see routes/web.php:8
  * @route '/'
  */
 export const home = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -17,7 +17,7 @@ home.definition = {
 }
 
 /**
- * @see routes/web.php:6
+ * @see routes/web.php:8
  * @route '/'
  */
 home.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -25,7 +25,7 @@ home.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 }
 
 /**
- * @see routes/web.php:6
+ * @see routes/web.php:8
  * @route '/'
  */
 home.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -36,7 +36,7 @@ home.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     method: 'get',
 })
 /**
- * @see routes/web.php:6
+ * @see routes/web.php:8
  * @route '/'
  */
 home.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -48,104 +48,120 @@ home.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 })
 
 /**
- * @see routes/web.php:10
- * @route '/dashboard'
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
  */
-export const dashboard = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+export const redirect = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'get',
 } => ({
-    url: dashboard.url(options),
+    url: redirect.url(options),
     method: 'get',
 })
 
-dashboard.definition = {
-    methods: ['get','head'],
-    url: '/dashboard',
+redirect.definition = {
+    methods: ['get','head','post','put','patch','delete','options'],
+    url: '/redirect',
 }
 
 /**
- * @see routes/web.php:10
- * @route '/dashboard'
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
  */
-dashboard.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
-    return dashboard.definition.url + queryParams(options)
+redirect.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return redirect.definition.url + queryParams(options)
 }
 
 /**
- * @see routes/web.php:10
- * @route '/dashboard'
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
  */
-dashboard.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+redirect.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'get',
 } => ({
-    url: dashboard.url(options),
+    url: redirect.url(options),
     method: 'get',
 })
 /**
- * @see routes/web.php:10
- * @route '/dashboard'
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
  */
-dashboard.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'head',
-} => ({
-    url: dashboard.url(options),
-    method: 'head',
-})
-
-/**
- * @see routes/settings.php:21
- * @route '/settings/appearance'
- */
-export const appearance = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: appearance.url(options),
-    method: 'get',
-})
-
-appearance.definition = {
-    methods: ['get','head'],
-    url: '/settings/appearance',
-}
-
-/**
- * @see routes/settings.php:21
- * @route '/settings/appearance'
- */
-appearance.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
-    return appearance.definition.url + queryParams(options)
-}
-
-/**
- * @see routes/settings.php:21
- * @route '/settings/appearance'
- */
-appearance.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: appearance.url(options),
-    method: 'get',
-})
-/**
- * @see routes/settings.php:21
- * @route '/settings/appearance'
- */
-appearance.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+redirect.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'head',
 } => ({
-    url: appearance.url(options),
+    url: redirect.url(options),
     method: 'head',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
+ */
+redirect.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: redirect.url(options),
+    method: 'post',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
+ */
+redirect.put = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'put',
+} => ({
+    url: redirect.url(options),
+    method: 'put',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
+ */
+redirect.patch = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'patch',
+} => ({
+    url: redirect.url(options),
+    method: 'patch',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
+ */
+redirect.delete = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'delete',
+} => ({
+    url: redirect.url(options),
+    method: 'delete',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::redirect
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/redirect'
+ */
+redirect.options = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'options',
+} => ({
+    url: redirect.url(options),
+    method: 'options',
 })
 
 /**
-* @see \App\Http\Controllers\Auth\RegisteredUserController::register
- * @see app/Http/Controllers/Auth/RegisteredUserController.php:21
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
  * @route '/register'
  */
 export const register = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -157,13 +173,13 @@ export const register = (options?: { query?: QueryParams, mergeQuery?: QueryPara
 })
 
 register.definition = {
-    methods: ['get','head'],
+    methods: ['get','head','post','put','patch','delete','options'],
     url: '/register',
 }
 
 /**
-* @see \App\Http\Controllers\Auth\RegisteredUserController::register
- * @see app/Http/Controllers/Auth/RegisteredUserController.php:21
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
  * @route '/register'
  */
 register.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -171,8 +187,8 @@ register.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => 
 }
 
 /**
-* @see \App\Http\Controllers\Auth\RegisteredUserController::register
- * @see app/Http/Controllers/Auth/RegisteredUserController.php:21
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
  * @route '/register'
  */
 register.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -183,8 +199,8 @@ register.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     method: 'get',
 })
 /**
-* @see \App\Http\Controllers\Auth\RegisteredUserController::register
- * @see app/Http/Controllers/Auth/RegisteredUserController.php:21
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
  * @route '/register'
  */
 register.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -193,6 +209,66 @@ register.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 } => ({
     url: register.url(options),
     method: 'head',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/register'
+ */
+register.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: register.url(options),
+    method: 'post',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/register'
+ */
+register.put = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'put',
+} => ({
+    url: register.url(options),
+    method: 'put',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/register'
+ */
+register.patch = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'patch',
+} => ({
+    url: register.url(options),
+    method: 'patch',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/register'
+ */
+register.delete = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'delete',
+} => ({
+    url: register.url(options),
+    method: 'delete',
+})
+/**
+* @see \Illuminate\Routing\RedirectController::register
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/register'
+ */
+register.options = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'options',
+} => ({
+    url: register.url(options),
+    method: 'options',
 })
 
 /**

@@ -8,25 +8,23 @@ import { Link, usePage } from '@inertiajs/vue3';
 const sidebarNavItems: NavItem[] = [
     {
         title: 'Profile',
-        href: '/settings/profile',
+        href: '/dashboard/settings/profile',
     },
     {
         title: 'Password',
-        href: '/settings/password',
+        href: '/dashboard/settings/password',
     },
     {
         title: 'Appearance',
-        href: '/settings/appearance',
+        href: '/dashboard/settings/appearance',
     },
 ];
 
 const page = usePage();
-
-const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.location).pathname : '';
 </script>
 
 <template>
-    <div class="px-4 py-6">
+    <div class="space-y-6">
         <Heading title="Settings" description="Manage your profile and account settings" />
 
         <div class="flex flex-col lg:flex-row lg:space-x-12">
@@ -36,7 +34,7 @@ const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.locati
                         v-for="item in sidebarNavItems"
                         :key="item.href"
                         variant="ghost"
-                        :class="['w-full justify-start', { 'bg-muted': currentPath === item.href }]"
+                        :class="['w-full justify-start', { 'bg-muted': page.url === item.href }]"
                         as-child
                     >
                         <Link :href="item.href">

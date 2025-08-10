@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import InputError from '@/components/InputError.vue';
-import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
+import PageContent from '@/components/dashboard/PageContent.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import AppLayout from '@/layouts/dashboard/AppLayout.vue';
+import dashboard from '@/routes/dashboard';
 import { type BreadcrumbItem } from '@/types';
 
 const breadcrumbItems: BreadcrumbItem[] = [
     {
         title: 'Password settings',
-        href: '/settings/password',
+        href: '/dashboard/settings/password',
     },
 ];
 
@@ -28,7 +30,7 @@ const form = useForm({
 });
 
 const updatePassword = () => {
-    form.put(route('password.update'), {
+    form.submit(dashboard.password.update(), {
         preserveScroll: true,
         onSuccess: () => form.reset(),
         onError: (errors: any) => {
@@ -48,10 +50,14 @@ const updatePassword = () => {
         },
     });
 };
+
+defineOptions({
+    layout: AppLayout,
+});
 </script>
 
 <template>
-    <AppLayout :breadcrumbs="breadcrumbItems">
+    <PageContent :breadcrumbs="breadcrumbItems">
         <Head title="Password settings" />
 
         <SettingsLayout>
@@ -115,5 +121,5 @@ const updatePassword = () => {
                 </form>
             </div>
         </SettingsLayout>
-    </AppLayout>
+    </PageContent>
 </template>

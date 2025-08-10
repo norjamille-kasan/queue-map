@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { useAppearance } from '@/composables/useAppearance';
+import { useColorMode, useLocalStorage } from '@vueuse/core';
 import { Monitor, Moon, Sun } from 'lucide-vue-next';
 
-const { appearance, updateAppearance } = useAppearance();
-
+const mode = useColorMode();
 const tabs = [
     { value: 'light', Icon: Sun, label: 'Light' },
     { value: 'dark', Icon: Moon, label: 'Dark' },
-    { value: 'system', Icon: Monitor, label: 'System' },
+    { value: 'auto', Icon: Monitor, label: 'Auto' },
 ] as const;
+
+const pref = useLocalStorage('vueuse-color-scheme', 'auto');
 </script>
 
 <template>
@@ -16,10 +17,10 @@ const tabs = [
         <button
             v-for="{ value, Icon, label } in tabs"
             :key="value"
-            @click="updateAppearance(value)"
+            @click="mode = value"
             :class="[
                 'flex items-center rounded-md px-3.5 py-1.5 transition-colors',
-                appearance === value
+                pref === value
                     ? 'bg-white shadow-xs dark:bg-neutral-700 dark:text-neutral-100'
                     : 'text-neutral-500 hover:bg-neutral-200/60 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-700/60',
             ]"

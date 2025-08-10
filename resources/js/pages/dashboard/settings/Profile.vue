@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
 
-import DeleteUser from '@/components/DeleteUser.vue';
+import PageContent from '@/components/dashboard/PageContent.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import AppLayout from '@/layouts/AppLayout.vue';
+import AppLayout from '@/layouts/dashboard/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
+import dashboard from '@/routes/dashboard';
+import verification from '@/routes/verification';
 import { type BreadcrumbItem, type User } from '@/types';
 
 interface Props {
@@ -21,7 +23,7 @@ defineProps<Props>();
 const breadcrumbItems: BreadcrumbItem[] = [
     {
         title: 'Profile settings',
-        href: '/settings/profile',
+        href: '/dashboard/settings/profile',
     },
 ];
 
@@ -34,14 +36,18 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.patch(route('profile.update'), {
+    form.submit(dashboard.profile.edit(), {
         preserveScroll: true,
     });
 };
+
+defineOptions({
+    layout: AppLayout,
+});
 </script>
 
 <template>
-    <AppLayout :breadcrumbs="breadcrumbItems">
+    <PageContent :breadcrumbs="breadcrumbItems">
         <Head title="Profile settings" />
 
         <SettingsLayout>
@@ -73,7 +79,7 @@ const submit = () => {
                         <p class="-mt-4 text-sm text-muted-foreground">
                             Your email address is unverified.
                             <Link
-                                :href="route('verification.send')"
+                                :href="verification.send()"
                                 method="post"
                                 as="button"
                                 class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
@@ -102,7 +108,7 @@ const submit = () => {
                 </form>
             </div>
 
-            <DeleteUser />
+            <!-- <DeleteUser /> -->
         </SettingsLayout>
-    </AppLayout>
+    </PageContent>
 </template>

@@ -15,6 +15,7 @@ export interface NavItem {
     href: string;
     icon?: LucideIcon;
     isActive?: boolean;
+    absolute?: boolean;
 }
 
 export type AppPageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
@@ -36,3 +37,29 @@ export interface User {
 }
 
 export type BreadcrumbItemType = BreadcrumbItem;
+
+export interface PaginationLink {
+    url: string | null;
+    label: string;
+    active: boolean;
+}
+export interface Paginated<T> {
+    current_page: number;
+    data: T[];
+    first_page_url: string;
+    from: number | null;
+    last_page: number;
+    last_page_url: string;
+    links: PaginationLink[];
+    next_page_url: string | null;
+    path: string;
+    per_page: number;
+    prev_page_url: string | null;
+    to: number | null;
+    total: number;
+}
+
+export interface ApiResponse<T> {
+    data: T;
+    message?: string;
+}
