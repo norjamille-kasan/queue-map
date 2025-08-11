@@ -1,7 +1,8 @@
 import { queryParams, type QueryParams } from './../../wayfinder'
 import profile from './profile'
 import password from './password'
-import kioskSettings from './kiosk-settings'
+import kiosks from './kiosks'
+import floorPlans from './floor-plans'
 /**
 * @see \App\Http\Controllers\Dashboard\IndexController::index
  * @see app/Http/Controllers/Dashboard/IndexController.php:14
@@ -106,7 +107,8 @@ const dashboard = {
 profile,
 password,
 appearance,
-kioskSettings,
+kiosks,
+floorPlans,
 }
 
 export default dashboard

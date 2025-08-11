@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kiosk_settings', function (Blueprint $table) {
+        Schema::create('kiosks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->references('id')->on('users');
+             $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('code')->unique();
             $table->string('name');
             $table->string('x_axis');
             $table->string('y_axis');
+            $table->boolean('is_active');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kiosk_settings');
+        Schema::dropIfExists('kiosks');
     }
 };

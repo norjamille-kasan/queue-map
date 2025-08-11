@@ -31,8 +31,9 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'verified'])
     })->name('appearance');
 
     // --------------------
-
-    Route::resource('kiosk-settings', App\Http\Controllers\Dashboard\KioskSettingController::class);
+    Route::resource('kiosks', App\Http\Controllers\Dashboard\Kiosk\KioskController::class);
+    Route::resource('floor-plans', App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::class)
+        ->parameters(['floor-plan' => 'floorPlan']);
 });
 
 require __DIR__.'/auth.php';

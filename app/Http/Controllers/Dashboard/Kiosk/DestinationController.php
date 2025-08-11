@@ -1,26 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Kiosk;
 
 use App\Http\Controllers\Controller;
-use App\Models\KioskSetting;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Spatie\QueryBuilder\QueryBuilder;
 
-class KioskSettingController extends Controller
+class DestinationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Inertia::render('dashboard/kiosk-settings/Index',[
-            'kioskSettings' => fn() => QueryBuilder::for(KioskSetting::class)
-                        ->with('user')
-                        ->allowedFilters(['name'])
-                        ->paginate(15)
-        ]);
+        //
     }
 
     /**
@@ -36,7 +28,12 @@ class KioskSettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name'=> ['required','max:50'],
+            'x_axis' => ['required'],
+            'y_axis' => ['required'],
+            'kiosk_id' => ['required']
+        ]);
     }
 
     /**

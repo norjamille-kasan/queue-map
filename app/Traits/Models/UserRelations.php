@@ -2,12 +2,13 @@
 
 namespace App\Traits\Models;
 
+use App\Models\Kiosk;
 use App\Models\KioskSetting;
 
 trait UserRelations
 {
-    public function kioskSettings()
+    public function kiosks()
     {
-        return $this->hasMany(KioskSetting::class);
+        return $this->hasMany(Kiosk::class);
     }
 }
