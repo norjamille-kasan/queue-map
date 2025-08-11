@@ -145,7 +145,7 @@ store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:44
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 export const show = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -163,7 +163,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:44
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 show.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -189,7 +189,7 @@ show.url = (args: { floor_plan: string | number } | [floor_plan: string | number
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:44
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 show.get = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -201,7 +201,7 @@ show.get = (args: { floor_plan: string | number } | [floor_plan: string | number
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:44
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 show.head = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -214,7 +214,7 @@ show.head = (args: { floor_plan: string | number } | [floor_plan: string | numbe
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 export const edit = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -232,7 +232,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 edit.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -258,7 +258,7 @@ edit.url = (args: { floor_plan: string | number } | [floor_plan: string | number
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 edit.get = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -270,7 +270,7 @@ edit.get = (args: { floor_plan: string | number } | [floor_plan: string | number
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 edit.head = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -283,7 +283,7 @@ edit.head = (args: { floor_plan: string | number } | [floor_plan: string | numbe
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 export const update = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -301,7 +301,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 update.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -327,7 +327,7 @@ update.url = (args: { floor_plan: string | number } | [floor_plan: string | numb
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 update.put = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -339,7 +339,7 @@ update.put = (args: { floor_plan: string | number } | [floor_plan: string | numb
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 update.patch = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -352,7 +352,7 @@ update.patch = (args: { floor_plan: string | number } | [floor_plan: string | nu
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:68
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:82
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 export const destroy = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -370,7 +370,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:68
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:82
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 destroy.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -396,7 +396,7 @@ destroy.url = (args: { floor_plan: string | number } | [floor_plan: string | num
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:68
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:82
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 destroy.delete = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

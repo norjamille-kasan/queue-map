@@ -35,7 +35,21 @@ class FloorPlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data = $request->validate([
+            'name'=> ['required','max:50','unique:floor_plans,name'],
+            'image' => ['required','image','mimes:jpeg,png,jpg','max:50000'],
+        ]);
+
+        $floorPlan = FloorPlan::create([
+            'name' => $data['name']
+        ]);
+
+        $floorPlan->addMedia($data['image'])
+            ->toMediaCollection('image');
+
+        return to_route('dashboard.floor-plans.index')->with('success','Floor plan created successfully');
+
     }
 
     /**
