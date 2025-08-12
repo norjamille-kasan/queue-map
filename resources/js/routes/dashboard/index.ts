@@ -3,6 +3,7 @@ import profile from './profile'
 import password from './password'
 import kiosks from './kiosks'
 import floorPlans from './floor-plans'
+import destinations from './destinations'
 /**
 * @see \App\Http\Controllers\Dashboard\IndexController::index
  * @see app/Http/Controllers/Dashboard/IndexController.php:14
@@ -109,6 +110,7 @@ password,
 appearance,
 kiosks,
 floorPlans,
+destinations,
 }
 
 export default dashboard

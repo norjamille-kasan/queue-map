@@ -20,7 +20,7 @@ class FloorPlanSeeder extends Seeder
         ]);
         $floorPlan->addMedia(storage_path('test/megamall.png'))
             ->preservingOriginal()
-            ->toMediaCollection('floor_plan');
+            ->toMediaCollection('image');
         Destination::factory(10)->create([
             'floor_plan_id' => $floorPlan->id
         ]);
@@ -29,7 +29,7 @@ class FloorPlanSeeder extends Seeder
         ]);
         $floorPlan->addMedia(storage_path('test/test-fp.png'))
             ->preservingOriginal()
-            ->toMediaCollection('floor_plan');
+            ->toMediaCollection('image');
         Destination::factory(10)->create([
             'floor_plan_id' => $floorPlan->id
         ]);

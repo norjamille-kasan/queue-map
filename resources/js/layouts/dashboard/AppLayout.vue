@@ -2,12 +2,14 @@
 import AlertSound from '@/assets/alert-sound.mp3';
 import ErrorSound from '@/assets/error-sound.mp3';
 import AppLayout from '@/components/dashboard/AppSidebarLayout.vue';
+import { Toaster } from '@/components/ui/sonner';
 import { AppPageProps } from '@/types';
 import { router, usePage } from '@inertiajs/vue3';
 import { useColorMode } from '@vueuse/core';
 import { useSound } from '@vueuse/sound';
 import { onUnmounted } from 'vue';
 import { toast } from 'vue-sonner';
+import 'vue-sonner/style.css';
 const page = usePage<AppPageProps>();
 
 const mode = useColorMode();
@@ -61,5 +63,6 @@ onUnmounted(() => {
 <template>
     <AppLayout>
         <slot />
+        <Toaster position="top-center" rich-colors :theme="mode === 'auto' ? 'system' : mode" style="font-family: GeistVF" />
     </AppLayout>
 </template>

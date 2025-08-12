@@ -34,6 +34,10 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'verified'])
     Route::resource('kiosks', App\Http\Controllers\Dashboard\Kiosk\KioskController::class);
     Route::resource('floor-plans', App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::class)
         ->parameters(['floor-plan' => 'floorPlan']);
+    Route::resource('floor-plans.destinations', App\Http\Controllers\Dashboard\FloorPlan\DestinationController::class)
+        ->parameters(['floor-plan' => 'floorPlan']);
+
+    Route::put('destinations/{destination}/axis', App\Http\Controllers\Dashboard\FloorPlan\DestinationAxisController::class)->name('destinations.axis.update');
 });
 
 require __DIR__.'/auth.php';

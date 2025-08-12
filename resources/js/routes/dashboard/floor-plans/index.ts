@@ -1,4 +1,5 @@
 import { queryParams, type QueryParams } from './../../../wayfinder'
+import destinations from './destinations'
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::index
  * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:16
@@ -53,7 +54,7 @@ index.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:31
  * @route '/dashboard/floor-plans/create'
  */
 export const create = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -71,7 +72,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:31
  * @route '/dashboard/floor-plans/create'
  */
 create.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -80,7 +81,7 @@ create.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:31
  * @route '/dashboard/floor-plans/create'
  */
 create.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -92,7 +93,7 @@ create.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:31
  * @route '/dashboard/floor-plans/create'
  */
 create.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -105,7 +106,7 @@ create.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::store
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:36
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:39
  * @route '/dashboard/floor-plans'
  */
 export const store = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -123,7 +124,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::store
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:36
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:39
  * @route '/dashboard/floor-plans'
  */
 store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -132,7 +133,7 @@ store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::store
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:36
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:39
  * @route '/dashboard/floor-plans'
  */
 store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -145,7 +146,7 @@ store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 export const show = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -163,7 +164,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 show.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -189,7 +190,7 @@ show.url = (args: { floor_plan: string | number } | [floor_plan: string | number
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 show.get = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -201,7 +202,7 @@ show.get = (args: { floor_plan: string | number } | [floor_plan: string | number
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:58
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:60
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 show.head = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -214,7 +215,7 @@ show.head = (args: { floor_plan: string | number } | [floor_plan: string | numbe
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:68
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 export const edit = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -232,7 +233,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:68
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 edit.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -258,7 +259,7 @@ edit.url = (args: { floor_plan: string | number } | [floor_plan: string | number
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:68
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 edit.get = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -270,7 +271,7 @@ edit.get = (args: { floor_plan: string | number } | [floor_plan: string | number
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:66
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:68
  * @route '/dashboard/floor-plans/{floor_plan}/edit'
  */
 edit.head = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -283,7 +284,7 @@ edit.head = (args: { floor_plan: string | number } | [floor_plan: string | numbe
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:79
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 export const update = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -301,7 +302,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:79
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 update.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -327,7 +328,7 @@ update.url = (args: { floor_plan: string | number } | [floor_plan: string | numb
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:79
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 update.put = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -339,7 +340,7 @@ update.put = (args: { floor_plan: string | number } | [floor_plan: string | numb
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:74
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:79
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 update.patch = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -352,7 +353,7 @@ update.patch = (args: { floor_plan: string | number } | [floor_plan: string | nu
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:82
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:100
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 export const destroy = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -370,7 +371,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:82
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:100
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 destroy.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -396,7 +397,7 @@ destroy.url = (args: { floor_plan: string | number } | [floor_plan: string | num
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:82
+ * @see app/Http/Controllers/Dashboard/FloorPlan/FloorPlanController.php:100
  * @route '/dashboard/floor-plans/{floor_plan}'
  */
 destroy.delete = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -414,6 +415,7 @@ show,
 edit,
 update,
 destroy,
+destinations,
 }
 
 export default floorPlans

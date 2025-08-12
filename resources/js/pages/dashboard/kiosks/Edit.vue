@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import CreateDestinationForm from '@/components/dashboard/kiosk/CreateDestinationForm.vue';
 import PageContent from '@/components/dashboard/PageContent.vue';
-import FloorPlanPin from '@/components/FloorPlanPin.vue';
 import FormControl from '@/components/FormControl.vue';
 import { Button } from '@/components/ui/button';
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from '@/components/ui/context-menu';
 import { Input } from '@/components/ui/input';
 import AppLayout from '@/layouts/dashboard/AppLayout.vue';
 import dashboard from '@/routes/dashboard';
@@ -13,7 +10,7 @@ import { User, type BreadcrumbItem } from '@/types';
 import { Destination } from '@/types/models/destination';
 import { Kiosk } from '@/types/models/kiosk';
 import { Head, useForm } from '@inertiajs/vue3';
-import { ArrowRight, MapPin, MapPinned, RefreshCcw } from 'lucide-vue-next';
+import { ArrowRight, RefreshCcw } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 const props = defineProps<{
     kiosk: Kiosk & { floor_plan: string; user: Pick<User, 'name'> };
@@ -134,39 +131,7 @@ const selectAsNewDestination = () => {
                         />
                     </FormControl>
                 </div>
-                <div class="relative mt-4 inline-block">
-                    <ContextMenu>
-                        <ContextMenuTrigger as-child>
-                            <img
-                                ref="imageRef"
-                                class="min:h-[500px] h-[500px] max-w-full cursor-pointer"
-                                :src="floorPlanPreview ?? props.kiosk.floor_plan"
-                                alt="floor plan"
-                                @contextmenu="handleSelectKioskPosition"
-                            />
-                        </ContextMenuTrigger>
-                        <ContextMenuContent>
-                            <ContextMenuItem @click="selectAsKioskPosition">
-                                <MapPin />
-                                Select As Kiosk Position
-                            </ContextMenuItem>
-                            <ContextMenuItem @click="selectAsNewDestination">
-                                <MapPinned />
-                                Create New Destination
-                            </ContextMenuItem>
-                        </ContextMenuContent>
-                    </ContextMenu>
-
-                    <FloorPlanPin
-                        class="fill-red-500 text-red-300"
-                        v-if="kioskEditForm.x_axis && kioskEditForm.y_axis"
-                        :x-axis="Number(kioskEditForm.x_axis)"
-                        :y-axis="Number(kioskEditForm.y_axis)"
-                    />
-                    <FloorPlanPin v-for="destination in destinations" :x-axis="Number(destination.x_axis)" :y-axis="Number(destination.y_axis)" />
-                </div>
             </CardContent>
         </Card>
-        <CreateDestinationForm :kiosk-id="kiosk.id" :x-axis="selectedAxis.x" :y-axis="selectedAxis.y" v-model="showCreateDestinationForm" />
     </PageContent>
 </template>

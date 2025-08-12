@@ -1,6 +1,6 @@
 export interface Destination {
     id: number;
-    kiosk_id: number;
+    floor_plan_id: number;
     name: string;
     x_axis: string;
     y_axis: string;
