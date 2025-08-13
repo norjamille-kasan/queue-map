@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('y_axis');
             $table->boolean('is_active');
             $table->boolean('located_at_floor_plan_id');
+            $table->integer('version')->default(0);
         });
     }
 

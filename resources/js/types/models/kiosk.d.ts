@@ -9,4 +9,5 @@ export interface Kiosk {
     code: string;
     created_at: string;
     updated_at: string;
+    version: number;
 }
