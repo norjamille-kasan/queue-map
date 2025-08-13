@@ -28,10 +28,9 @@ const mode = useColorMode({
     initialValue: 'light',
 });
 const props = defineProps<{
-    kiosk: Kiosk & { located_at_floor_plan: FloorPlan & { media: Media[] } };
+    kiosk: Kiosk;
+    currentFloorPlan: FloorPlan & { media: Media[] };
 }>();
 
-const currentFloorPlan = ref(props.kiosk.located_at_floor_plan_id);
-
-const currentFloorPlanImage = ref(props.kiosk.located_at_floor_plan.media[0].original_url);
+const currentFloorPlanImage = ref(props.currentFloorPlan.media[0].original_url);
 </script>

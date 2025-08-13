@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kiosk;
 
 use App\Http\Controllers\Controller;
+use App\Models\FloorPlan;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,15 +16,16 @@ class IndexController extends Controller
     {
         $kiosk = $request->user()->kiosk;
         return Inertia::render('kiosk/Index',[
-            'kiosk' => function() use($request,$kiosk){
-                return [
-                    'id' => $kiosk->id,
-                    'located_at_floor_plan_id' => $kiosk->located_at_floor_plan_id,
-                    'x_axis' => $kiosk->x_axis,
-                    'y_axis' => $kiosk->y_axis,
-                    'located_at_floor_plan' => $kiosk->floorPlan->load(['media'=> fn($query) => $query->where('collection_name', 'image')]),
-                ];
+            // -------------------------------------------
+            'kiosk' => fn() => $kiosk->except('code'),
+            //  -------------------------------------------
+            'currentFloorPlan' => function() use($kiosk,$request){
+                if($request->has('floorPlanId') && $request->input('floorPlanId') != $kiosk->located_at_floor_plan_id){
+                    return FloorPlan::find($request->input('floorPlanId'))->load(['media'=> fn($query) => $query->where('collection_name', 'image')]);
+                }
+                return $kiosk->floorPlan->load(['media'=> fn($query) => $query->where('collection_name', 'image')]);
             },
+            //  -------------------------------------------
         ]);
     }
 }
