@@ -20,6 +20,6 @@ trait KioskRelations
 
     public function floorPlan()
     {
-        return $this->belongsTo(FloorPlan::class);
+        return $this->belongsTo(FloorPlan::class,'located_at_floor_plan_id');
     }
 }

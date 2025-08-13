@@ -92,7 +92,7 @@ const pinnedDestination = ref<number | null>();
                     />
 
                     <FloorPlanPin
-                        :class="pinnedDestination === destination.id ? 'animate-bounce fill-red-500 text-red-300' : ''"
+                        :class="pinnedDestination === destination.id ? 'animate-pulse fill-red-500 text-red-300' : ''"
                         v-for="destination in destinations"
                         :destination="destination"
                         :x-axis="Number(destination.x_axis)"

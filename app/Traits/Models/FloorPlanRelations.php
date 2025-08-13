@@ -19,6 +19,6 @@ trait FloorPlanRelations
 
     public function locatedKiosks()
     {
-        return $this->belongsToMany(Kiosk::class);
+        return $this->belongsToMany(Kiosk::class,'located_floor_plan_id');
     }
 }

@@ -7,10 +7,11 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthBase from '@/layouts/AuthLayout.vue';
-import { register } from '@/routes';
 import password from '@/routes/password';
 import { Head, useForm } from '@inertiajs/vue3';
+import { useColorMode } from '@vueuse/core';
 
+const mode = useColorMode();
 defineProps<{
     status?: string;
     canResetPassword: boolean;
@@ -82,11 +83,6 @@ const submit = () => {
                     <Spinner :show="form.processing" />
                     Log in
                 </Button>
-            </div>
-
-            <div class="text-center text-sm text-muted-foreground">
-                Don't have an account?
-                <TextLink :href="register()" :tabindex="5">Sign up</TextLink>
             </div>
         </form>
     </AuthBase>

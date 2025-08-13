@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::redirect('redirect', '/dashboard')->middleware(['auth', 'verified'])->name('redirect');
 
 
-Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'verified','dashboard.access.only'])->group(function () {
     Route::get('/',App\Http\Controllers\Dashboard\IndexController::class)->name('index');
     Route::redirect('settings', '/settings/profile');
 
@@ -38,6 +38,13 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'verified'])
         ->parameters(['floor-plan' => 'floorPlan']);
 
     Route::put('destinations/{destination}/axis', App\Http\Controllers\Dashboard\FloorPlan\DestinationAxisController::class)->name('destinations.axis.update');
+});
+
+
+Route::post('/open-kiosk',\App\Http\Controllers\Kiosk\KioskSessionController::class)->name('openKiosk');
+Route::prefix('kiosk')->name('kiosk.')->middleware(['auth', 'verified','kiosk.only'])->group(function (){
+    Route::get('/',\App\Http\Controllers\Kiosk\IndexController::class)->name('index');
+
 });
 
 require __DIR__.'/auth.php';

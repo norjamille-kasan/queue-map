@@ -7,8 +7,8 @@ use App\Models\KioskSetting;
 
 trait UserRelations
 {
-    public function kiosks()
+    public function kiosk()
     {
-        return $this->hasMany(Kiosk::class);
+        return $this->hasOne(Kiosk::class);
     }
 }

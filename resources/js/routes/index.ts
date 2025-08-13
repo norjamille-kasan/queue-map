@@ -160,6 +160,46 @@ redirect.options = (options?: { query?: QueryParams, mergeQuery?: QueryParams })
 })
 
 /**
+* @see \App\Http\Controllers\Kiosk\KioskSessionController::openKiosk
+ * @see app/Http/Controllers/Kiosk/KioskSessionController.php:15
+ * @route '/open-kiosk'
+ */
+export const openKiosk = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: openKiosk.url(options),
+    method: 'post',
+})
+
+openKiosk.definition = {
+    methods: ['post'],
+    url: '/open-kiosk',
+}
+
+/**
+* @see \App\Http\Controllers\Kiosk\KioskSessionController::openKiosk
+ * @see app/Http/Controllers/Kiosk/KioskSessionController.php:15
+ * @route '/open-kiosk'
+ */
+openKiosk.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return openKiosk.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Kiosk\KioskSessionController::openKiosk
+ * @see app/Http/Controllers/Kiosk/KioskSessionController.php:15
+ * @route '/open-kiosk'
+ */
+openKiosk.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: openKiosk.url(options),
+    method: 'post',
+})
+
+/**
 * @see \Illuminate\Routing\RedirectController::register
  * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
  * @route '/register'

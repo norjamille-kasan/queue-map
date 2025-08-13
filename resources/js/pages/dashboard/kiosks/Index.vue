@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import ConfirmDialog from '@/components/ConfirmDialog.vue';
 import PageContent from '@/components/dashboard/PageContent.vue';
+import Pagination from '@/components/Pagination.vue';
+import TextHelp from '@/components/TextHelp.vue';
 import { Badge } from '@/components/ui/badge';
-import { buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import AppLayout from '@/layouts/dashboard/AppLayout.vue';
@@ -9,9 +12,9 @@ import { cn } from '@/lib/utils';
 import dashboard from '@/routes/dashboard';
 import { Paginated, User, type BreadcrumbItem } from '@/types';
 import { Kiosk } from '@/types/models/kiosk';
-import { Head, Link } from '@inertiajs/vue3';
-import { formatDate } from '@vueuse/core';
-import { PlusIcon } from 'lucide-vue-next';
+import { Head, Link, router } from '@inertiajs/vue3';
+import { formatDate, useConfirmDialog } from '@vueuse/core';
+import { Edit2Icon, PlusIcon, TrashIcon } from 'lucide-vue-next';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Dashboard',
@@ -29,6 +32,15 @@ defineOptions({
 const props = defineProps<{
     kiosks: Paginated<Kiosk & { user: Pick<User, 'name'> }>;
 }>();
+
+const confirmDeleteKiosk = useConfirmDialog();
+
+const deleteKiosk = async (floorPlanId: number) => {
+    const { isCanceled } = await confirmDeleteKiosk.reveal();
+    if (!isCanceled) {
+        router.delete(dashboard.kiosks.destroy(floorPlanId).url);
+    }
+};
 </script>
 
 <template>
@@ -73,10 +85,25 @@ const props = defineProps<{
                         <TableCell>
                             {{ formatDate(new Date(kiosk.updated_at), ' YYYY MMM DD h:mm a') }}
                         </TableCell>
-                        <TableCell class="text-right"> </TableCell>
+                        <TableCell class="text-right">
+                            <div class="-my-1 flex justify-end gap-1">
+                                <TextHelp text="Edit Floor Plan">
+                                    <Link :href="dashboard.kiosks.edit(kiosk.id)" :class="buttonVariants({ variant: 'outline', size: 'icon' })">
+                                        <Edit2Icon />
+                                    </Link>
+                                </TextHelp>
+                                <TextHelp text="Delete Kiosk">
+                                    <Button @click="deleteKiosk(kiosk.id)" size="icon" variant="outline">
+                                        <TrashIcon class="text-red-600" />
+                                    </Button>
+                                </TextHelp>
+                            </div>
+                        </TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
         </div>
+        <Pagination :links="props.kiosks.links" />
+        <ConfirmDialog :open="confirmDeleteKiosk.isRevealed.value" @cancel="confirmDeleteKiosk.cancel" @confirm="confirmDeleteKiosk.confirm" />
     </PageContent>
 </template>

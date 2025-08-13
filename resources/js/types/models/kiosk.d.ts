@@ -1,7 +1,7 @@
 export interface Kiosk {
     id: number;
     user_id: number;
-    floor_plan_id: number;
+    located_at_floor_plan_id: number;
     name: string;
     x_axis: string;
     y_axis: string;

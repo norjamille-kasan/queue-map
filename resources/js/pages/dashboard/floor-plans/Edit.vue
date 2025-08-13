@@ -64,8 +64,8 @@ const submit = () => {
 <template>
     <Head title="Edit Floor Plan" />
     <PageContent :breadcrumbs="breadcrumbs">
-        <div class="grid sm:grid-cols-12">
-            <form @submit.prevent="submit" class="space-y-6 sm:col-span-7">
+        <div class="mx-auto max-w-4xl">
+            <form @submit.prevent="submit" class="space-y-6">
                 <Card>
                     <CardHeader>
                         <CardTitle> Edit - "{{ floorPlan.name }}" </CardTitle>

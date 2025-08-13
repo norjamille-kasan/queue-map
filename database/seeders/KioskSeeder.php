@@ -22,14 +22,15 @@ class KioskSeeder extends Seeder
         $users = User::where('role', UserRole::KIOSK)->get();
 
         $floorPlans = FloorPlan::get()->pluck('id')->toArray();
-        foreach ($users as $user) {
+        foreach ($users as $key => $user) {
             $kiosk = Kiosk::create([
                 'user_id' => $user->id,
                 'name' => $user->name,
                 'x_axis' => "78.83",
                 'y_axis' => "20.79",
-                'code' => Str::ulid(),
-                'is_active' => false
+                'code' => 'TEST-KIOSK-'.$key + 1,
+                'is_active' => false,
+                'located_at_floor_plan_id' => $floorPlans[array_rand($floorPlans)],
             ]);
             $kiosk->floorPlans()->attach($floorPlans);
         }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\Kiosk;
 
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
+use App\Models\FloorPlan;
 use App\Models\Kiosk;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -32,7 +33,11 @@ class KioskController extends Controller
      */
     public function create()
     {
-        return Inertia::render('dashboard/kiosks/Create');
+        return Inertia::render('dashboard/kiosks/Create',[
+            'floorPlans'=> fn() => FloorPlan::with([
+                'media'=> fn($query) => $query->where('collection_name', 'image')
+            ])->get(),
+        ]);
     }
 
     /**
@@ -42,8 +47,11 @@ class KioskController extends Controller
     {
         $data = $request->validate([
             'name'=> ['required','max:50','unique:kiosks,name'],
+            'code' => ['required','unique:kiosks,code'],
             'x_axis' => ['required'],
             'y_axis' => ['required'],
+            'located_at_floor_plan_id' => ['required'],
+            'floor_plan_ids' => ['required','array','min:1'],
         ]);
 
         $user = User::create([
@@ -55,15 +63,18 @@ class KioskController extends Controller
 
         $kiosk = Kiosk::create([
             'user_id'=>$user->id,
-            'code'=> date('YmdHis'),
+            'code'=> $data['code'] ?? date('YmdHis'),
             'name' => $data['name'],
             'x_axis' => $data['x_axis'],
             'y_axis' => $data['y_axis'],
-            'is_active' => false
+            'is_active' => false,
+            'located_at_floor_plan_id' => $data['located_at_floor_plan_id'],
         ]);
 
+        $kiosk->floorPlans()->attach($data['floor_plan_ids']);
 
-        return to_route('dashboard.kiosks.edit',['kiosk' => $kiosk])->toast('success','Kiosk created successfully','Please add destination to complate kiosk setup');
+
+        return to_route('dashboard.kiosks.index')->toast('success','Kiosk created successfully');
     }
 
     /**
@@ -80,7 +91,10 @@ class KioskController extends Controller
     public function edit(Kiosk $kiosk)
     {
         return Inertia::render('dashboard/kiosks/Edit',[
-            'kiosk' => fn() => $kiosk,
+            'kiosk' => fn() => $kiosk->load('floorPlans'),
+             'floorPlans'=> fn() => FloorPlan::with([
+                'media'=> fn($query) => $query->where('collection_name', 'image')
+            ])->get(),
         ]);
     }
 
@@ -90,16 +104,23 @@ class KioskController extends Controller
     public function update(Request $request, Kiosk $kiosk)
     {
         $data = $request->validate([
-            'name'=> ['required','max:50'],
+            'name'=> ['required','max:50','unique:kiosks,name,'.$kiosk->id],
+            'code' => ['required','unique:kiosks,code,'.$kiosk->id],
             'x_axis' => ['required'],
             'y_axis' => ['required'],
+            'located_at_floor_plan_id' => ['required'],
+            'floor_plan_ids' => ['required','array','min:1'],
         ]);
 
         $kiosk->update([
             'name' => $data['name'],
             'x_axis' => $data['x_axis'],
-            'y_axis' => $data['y_axis']
+            'y_axis' => $data['y_axis'],
+            'code'=> $data['code'] ?? date('YmdHis'),
+            'located_at_floor_plan_id'=> $data['located_at_floor_plan_id'],
         ]);
+
+        $kiosk->floorPlans()->sync($data['floor_plan_ids']);
 
         return back()->toast('success','Kiosk updated successfully');
     }
@@ -107,8 +128,11 @@ class KioskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Kiosk $kiosk)
     {
-        //
+        $user = $kiosk->user;
+        $kiosk->delete();
+        $user->delete();
+        return back()->toast('success','Kiosk deleted successfully');
     }
 }
