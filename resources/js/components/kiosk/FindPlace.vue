@@ -74,7 +74,7 @@ const selectDestination = (destinationId: number, floorPlanId: number) => {
         </SheetTrigger>
         <SheetContent side="bottom" class="h-[90%] sm:max-h-[90%]">
             <SheetHeader class="mr-10">
-                <Input v-model="search" placeholder="Search" autofocus="false" />
+                <Input v-model="search" class="h-12" placeholder="Search" autofocus="false" />
             </SheetHeader>
             <div class="grid gap-4 p-5 sm:grid-cols-5">
                 <template v-for="destination in filteredDestinations" :key="destination.id">
