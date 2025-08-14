@@ -3,7 +3,9 @@
         <template #header>
             <div class="flex items-center gap-4 p-2">
                 <div class="flex items-center gap-2">
-                    <MapPinned class="size-8" />
+                    <Link href="/">
+                        <MapPinned class="size-8" />
+                    </Link>
                     <h1 class="text-xl font-bold uppercase">KIOSK LOCATION - {{ props.currentFloorPlan.name }}</h1>
                 </div>
             </div>
@@ -41,6 +43,7 @@ import { Destination } from '@/types/models/destination';
 import { FloorPlan } from '@/types/models/floor-plan';
 import { Kiosk } from '@/types/models/kiosk';
 import { Media } from '@/types/models/media';
+import { Link } from '@inertiajs/vue3';
 import { MapPinned } from 'lucide-vue-next';
 import { $fetch } from 'ofetch';
 import { computed, onMounted, ref } from 'vue';

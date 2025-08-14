@@ -1,7 +1,7 @@
 import { queryParams, type QueryParams } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationAxisController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationAxisController.php:14
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationAxisController.php:15
  * @route '/dashboard/destinations/{destination}/axis'
  */
 export const update = (args: { destination: number | { id: number } } | [destination: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -19,7 +19,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationAxisController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationAxisController.php:14
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationAxisController.php:15
  * @route '/dashboard/destinations/{destination}/axis'
  */
 update.url = (args: { destination: number | { id: number } } | [destination: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -50,7 +50,7 @@ update.url = (args: { destination: number | { id: number } } | [destination: num
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationAxisController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationAxisController.php:14
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationAxisController.php:15
  * @route '/dashboard/destinations/{destination}/axis'
  */
 update.put = (args: { destination: number | { id: number } } | [destination: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

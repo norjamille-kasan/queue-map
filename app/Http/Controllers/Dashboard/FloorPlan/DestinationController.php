@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Destination;
 use App\Models\FloorPlan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class DestinationController extends Controller
@@ -43,6 +44,10 @@ class DestinationController extends Controller
 
         $floorPlan->destinations()->create($data);
 
+        $floorPlan->kiosks()->update([
+            'version' => DB::raw('version + 1')
+        ]);
+
         return back()->toast('success','Destination created successfully');
     }
 
@@ -75,6 +80,9 @@ class DestinationController extends Controller
         ]);
 
         $destination->update($data);
+        $floorPlan->kiosks()->update([
+            'version' => DB::raw('version + 1')
+        ]);
 
         return back()->toast('success','Destination updated successfully');
     }

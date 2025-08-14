@@ -1,7 +1,7 @@
 import { queryParams, type QueryParams } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::index
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:21
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:22
  * @route '/dashboard/kiosks'
  */
 export const index = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -19,7 +19,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::index
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:21
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:22
  * @route '/dashboard/kiosks'
  */
 index.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -28,7 +28,7 @@ index.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::index
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:21
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:22
  * @route '/dashboard/kiosks'
  */
 index.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -40,7 +40,7 @@ index.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 })
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::index
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:21
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:22
  * @route '/dashboard/kiosks'
  */
 index.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -53,7 +53,7 @@ index.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::create
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:34
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:35
  * @route '/dashboard/kiosks/create'
  */
 export const create = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -71,7 +71,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::create
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:34
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:35
  * @route '/dashboard/kiosks/create'
  */
 create.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -80,7 +80,7 @@ create.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::create
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:34
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:35
  * @route '/dashboard/kiosks/create'
  */
 create.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -92,7 +92,7 @@ create.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 })
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::create
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:34
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:35
  * @route '/dashboard/kiosks/create'
  */
 create.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -105,7 +105,7 @@ create.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::store
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:46
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:47
  * @route '/dashboard/kiosks'
  */
 export const store = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -123,7 +123,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::store
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:46
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:47
  * @route '/dashboard/kiosks'
  */
 store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -132,7 +132,7 @@ store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::store
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:46
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:47
  * @route '/dashboard/kiosks'
  */
 store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -145,7 +145,7 @@ store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::show
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:83
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:84
  * @route '/dashboard/kiosks/{kiosk}'
  */
 export const show = (args: { kiosk: string | number } | [kiosk: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -163,7 +163,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::show
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:83
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:84
  * @route '/dashboard/kiosks/{kiosk}'
  */
 show.url = (args: { kiosk: string | number } | [kiosk: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -189,7 +189,7 @@ show.url = (args: { kiosk: string | number } | [kiosk: string | number ] | strin
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::show
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:83
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:84
  * @route '/dashboard/kiosks/{kiosk}'
  */
 show.get = (args: { kiosk: string | number } | [kiosk: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -201,7 +201,7 @@ show.get = (args: { kiosk: string | number } | [kiosk: string | number ] | strin
 })
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::show
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:83
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:84
  * @route '/dashboard/kiosks/{kiosk}'
  */
 show.head = (args: { kiosk: string | number } | [kiosk: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -214,7 +214,7 @@ show.head = (args: { kiosk: string | number } | [kiosk: string | number ] | stri
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::edit
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:91
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:92
  * @route '/dashboard/kiosks/{kiosk}/edit'
  */
 export const edit = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -232,7 +232,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::edit
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:91
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:92
  * @route '/dashboard/kiosks/{kiosk}/edit'
  */
 edit.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -263,7 +263,7 @@ edit.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::edit
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:91
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:92
  * @route '/dashboard/kiosks/{kiosk}/edit'
  */
 edit.get = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -275,7 +275,7 @@ edit.get = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: nu
 })
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::edit
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:91
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:92
  * @route '/dashboard/kiosks/{kiosk}/edit'
  */
 edit.head = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -288,7 +288,7 @@ edit.head = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: n
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::update
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:104
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:105
  * @route '/dashboard/kiosks/{kiosk}'
  */
 export const update = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -306,7 +306,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::update
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:104
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:105
  * @route '/dashboard/kiosks/{kiosk}'
  */
 update.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -337,7 +337,7 @@ update.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::update
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:104
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:105
  * @route '/dashboard/kiosks/{kiosk}'
  */
 update.put = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -349,7 +349,7 @@ update.put = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: 
 })
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::update
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:104
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:105
  * @route '/dashboard/kiosks/{kiosk}'
  */
 update.patch = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -362,7 +362,7 @@ update.patch = (args: { kiosk: number | { id: number } } | [kiosk: number | { id
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::destroy
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:131
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:133
  * @route '/dashboard/kiosks/{kiosk}'
  */
 export const destroy = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -380,7 +380,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::destroy
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:131
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:133
  * @route '/dashboard/kiosks/{kiosk}'
  */
 destroy.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -411,7 +411,7 @@ destroy.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id:
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::destroy
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:131
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:133
  * @route '/dashboard/kiosks/{kiosk}'
  */
 destroy.delete = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

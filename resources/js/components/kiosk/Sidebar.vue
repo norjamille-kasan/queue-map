@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import ErrorSound from '@/assets/error-sound.mp3';
 import type { SidebarProps } from '@/components/ui/sidebar';
-import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components/ui/sidebar';
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '@/components/ui/sidebar';
 import { useKioskState } from '@/stores/kioskStore';
 import { formatDate } from '@vueuse/core';
 import { useSound } from '@vueuse/sound';
-import { CalendarIcon, RefreshCcw } from 'lucide-vue-next';
+import { CalendarIcon, CogIcon, RefreshCcw } from 'lucide-vue-next';
 import { computed } from 'vue';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
@@ -44,7 +44,12 @@ const hasFilter = computed(() => {
         <SidebarContent class="p-2">
             <ul class="space-y-2">
                 <li>
-                    <FindPlace />
+                    <Suspense>
+                        <FindPlace />
+                        <template #fallback>
+                            <p>Loading...</p>
+                        </template>
+                    </Suspense>
                 </li>
                 <li>
                     <Separator />
@@ -63,6 +68,11 @@ const hasFilter = computed(() => {
                     </Button>
                 </li>
             </ul>
+            <SidebarFooter class="mt-auto">
+                <Button variant="outline" class="h-12">
+                    <CogIcon class="size-8" />
+                </Button>
+            </SidebarFooter>
         </SidebarContent>
         <SidebarRail />
     </Sidebar>

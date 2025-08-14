@@ -1,7 +1,7 @@
 import { queryParams, type QueryParams } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::index
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:16
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:17
  * @route '/dashboard/floor-plans/{floor_plan}/destinations'
  */
 export const index = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -19,7 +19,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::index
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:16
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:17
  * @route '/dashboard/floor-plans/{floor_plan}/destinations'
  */
 index.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -45,7 +45,7 @@ index.url = (args: { floor_plan: string | number } | [floor_plan: string | numbe
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::index
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:16
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:17
  * @route '/dashboard/floor-plans/{floor_plan}/destinations'
  */
 index.get = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -57,7 +57,7 @@ index.get = (args: { floor_plan: string | number } | [floor_plan: string | numbe
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::index
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:16
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:17
  * @route '/dashboard/floor-plans/{floor_plan}/destinations'
  */
 index.head = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -70,7 +70,7 @@ index.head = (args: { floor_plan: string | number } | [floor_plan: string | numb
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:29
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/create'
  */
 export const create = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -88,7 +88,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:29
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/create'
  */
 create.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -114,7 +114,7 @@ create.url = (args: { floor_plan: string | number } | [floor_plan: string | numb
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:29
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/create'
  */
 create.get = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -126,7 +126,7 @@ create.get = (args: { floor_plan: string | number } | [floor_plan: string | numb
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::create
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:28
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:29
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/create'
  */
 create.head = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -139,7 +139,7 @@ create.head = (args: { floor_plan: string | number } | [floor_plan: string | num
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::store
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:36
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:37
  * @route '/dashboard/floor-plans/{floor_plan}/destinations'
  */
 export const store = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -157,7 +157,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::store
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:36
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:37
  * @route '/dashboard/floor-plans/{floor_plan}/destinations'
  */
 store.url = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -183,7 +183,7 @@ store.url = (args: { floor_plan: string | number } | [floor_plan: string | numbe
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::store
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:36
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:37
  * @route '/dashboard/floor-plans/{floor_plan}/destinations'
  */
 store.post = (args: { floor_plan: string | number } | [floor_plan: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -196,7 +196,7 @@ store.post = (args: { floor_plan: string | number } | [floor_plan: string | numb
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:57
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 export const show = (args: { floor_plan: string | number, destination: string | number } | [floor_plan: string | number, destination: string | number ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -214,7 +214,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:57
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 show.url = (args: { floor_plan: string | number, destination: string | number } | [floor_plan: string | number, destination: string | number ], options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -238,7 +238,7 @@ show.url = (args: { floor_plan: string | number, destination: string | number } 
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:57
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 show.get = (args: { floor_plan: string | number, destination: string | number } | [floor_plan: string | number, destination: string | number ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -250,7 +250,7 @@ show.get = (args: { floor_plan: string | number, destination: string | number } 
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::show
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:52
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:57
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 show.head = (args: { floor_plan: string | number, destination: string | number } | [floor_plan: string | number, destination: string | number ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -263,7 +263,7 @@ show.head = (args: { floor_plan: string | number, destination: string | number }
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:65
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}/edit'
  */
 export const edit = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -281,7 +281,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:65
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}/edit'
  */
 edit.url = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -307,7 +307,7 @@ edit.url = (args: { floor_plan: string | number, destination: number | { id: num
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:65
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}/edit'
  */
 edit.get = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -319,7 +319,7 @@ edit.get = (args: { floor_plan: string | number, destination: number | { id: num
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::edit
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:60
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:65
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}/edit'
  */
 edit.head = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -332,7 +332,7 @@ edit.head = (args: { floor_plan: string | number, destination: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:71
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:76
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 export const update = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -350,7 +350,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:71
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:76
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 update.url = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -376,7 +376,7 @@ update.url = (args: { floor_plan: string | number, destination: number | { id: n
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:71
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:76
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 update.put = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -388,7 +388,7 @@ update.put = (args: { floor_plan: string | number, destination: number | { id: n
 })
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::update
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:71
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:76
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 update.patch = (args: { floor_plan: string | number, destination: number | { id: number } } | [floor_plan: string | number, destination: number | { id: number } ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -401,7 +401,7 @@ update.patch = (args: { floor_plan: string | number, destination: number | { id:
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:85
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:93
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 export const destroy = (args: { floor_plan: string | number, destination: string | number } | [floor_plan: string | number, destination: string | number ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -419,7 +419,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:85
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:93
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 destroy.url = (args: { floor_plan: string | number, destination: string | number } | [floor_plan: string | number, destination: string | number ], options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -443,7 +443,7 @@ destroy.url = (args: { floor_plan: string | number, destination: string | number
 
 /**
 * @see \App\Http\Controllers\Dashboard\FloorPlan\DestinationController::destroy
- * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:85
+ * @see app/Http/Controllers/Dashboard/FloorPlan/DestinationController.php:93
  * @route '/dashboard/floor-plans/{floor_plan}/destinations/{destination}'
  */
 destroy.delete = (args: { floor_plan: string | number, destination: string | number } | [floor_plan: string | number, destination: string | number ], options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

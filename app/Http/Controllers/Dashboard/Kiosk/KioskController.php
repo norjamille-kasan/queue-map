@@ -8,6 +8,7 @@ use App\Models\FloorPlan;
 use App\Models\Kiosk;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -118,6 +119,7 @@ class KioskController extends Controller
             'y_axis' => $data['y_axis'],
             'code'=> $data['code'] ?? date('YmdHis'),
             'located_at_floor_plan_id'=> $data['located_at_floor_plan_id'],
+            'version' => DB::raw('version + 1')
         ]);
 
         $kiosk->floorPlans()->sync($data['floor_plan_ids']);
