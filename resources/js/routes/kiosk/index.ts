@@ -1,7 +1,7 @@
 import { queryParams, type QueryParams } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\Kiosk\IndexController::index
- * @see app/Http/Controllers/Kiosk/IndexController.php:15
+ * @see app/Http/Controllers/Kiosk/IndexController.php:16
  * @route '/kiosk'
  */
 export const index = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -19,7 +19,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Kiosk\IndexController::index
- * @see app/Http/Controllers/Kiosk/IndexController.php:15
+ * @see app/Http/Controllers/Kiosk/IndexController.php:16
  * @route '/kiosk'
  */
 index.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -28,7 +28,7 @@ index.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Kiosk\IndexController::index
- * @see app/Http/Controllers/Kiosk/IndexController.php:15
+ * @see app/Http/Controllers/Kiosk/IndexController.php:16
  * @route '/kiosk'
  */
 index.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -40,7 +40,7 @@ index.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 })
 /**
 * @see \App\Http\Controllers\Kiosk\IndexController::index
- * @see app/Http/Controllers/Kiosk/IndexController.php:15
+ * @see app/Http/Controllers/Kiosk/IndexController.php:16
  * @route '/kiosk'
  */
 index.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

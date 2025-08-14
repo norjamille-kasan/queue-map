@@ -1,7 +1,9 @@
 <template>
-    <Button @click="isOpen = !isOpen" size="icon" variant="outline" class="h-12 font-mono text-2xl font-semibold has-[>svg]:px-6">
+    <Button @click="isOpen = !isOpen" variant="outline" class="h-12 w-full justify-start font-mono text-xl font-semibold uppercase">
         <MapPinIcon v-if="!isOpen" class="size-8" />
         <MapPinOff v-else class="size-8" />
+        <span v-if="!isOpen">Show Map Pin</span>
+        <span v-else>Hide Map Pin</span>
     </Button>
 </template>
 

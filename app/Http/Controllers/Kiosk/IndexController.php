@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kiosk;
 
 use App\Http\Controllers\Controller;
+use App\Models\Destination;
 use App\Models\FloorPlan;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -26,6 +27,12 @@ class IndexController extends Controller
                 return $kiosk->floorPlan->load(['media'=> fn($query) => $query->where('collection_name', 'image')]);
             },
             //  -------------------------------------------
+            'destinations' => fn() => function() use($kiosk,$request){
+                if($request->has('floorPlanId') && $request->input('floorPlanId') != $kiosk->located_at_floor_plan_id){
+                    return Destination::where('floor_plan_id', $request->input('floorPlanId'))->get();
+                }
+                return $kiosk->floorPlan->destinations()->get();
+            }
         ]);
     }
 }

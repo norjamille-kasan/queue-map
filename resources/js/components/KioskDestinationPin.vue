@@ -9,14 +9,14 @@
         <!-- Label above -->
         <div
             :class="showText ? 'opacity-100' : 'opacity-0'"
-            class="mb-1 rounded-full bg-red-500 px-3 py-1 text-xs font-bold whitespace-nowrap text-white uppercase shadow-md"
+            class="mb-1 rounded-full bg-blue-500 px-3 py-1 text-xs font-bold whitespace-nowrap text-white uppercase shadow-md"
         >
-            You are here
+            {{ name }}
         </div>
 
         <!-- MapPin icon -->
         <button>
-            <MapPin @click="showText = !showText" class="h-8 w-8 fill-red-600 text-red-200" />
+            <MapPin @click="showText = !showText" class="h-8 w-8 fill-blue-600 text-blue-200" />
         </button>
     </div>
 </template>
@@ -28,7 +28,8 @@ import { ref } from 'vue';
 const props = defineProps<{
     xAxis: number;
     yAxis: number;
+    name: string;
 }>();
 
-const showText = ref(true);
+const showText = ref(false);
 </script>

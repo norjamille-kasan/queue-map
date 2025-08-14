@@ -42,6 +42,10 @@ const page = usePage<AppPageProps>();
                         <Monitor />
                         OPEN KIOSK
                     </Link>
+                    <Link :href="logout()" method="post" :class="cn(buttonVariants({ variant: 'outline', size: 'lg' }), 'w-full')">
+                        <LayoutDashboard />
+                        LOGOUT KIOSK
+                    </Link>
                 </template>
             </template>
         </div>
