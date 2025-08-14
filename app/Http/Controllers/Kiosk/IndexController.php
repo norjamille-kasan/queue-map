@@ -18,6 +18,7 @@ class IndexController extends Controller
         $kiosk = $request->user()->kiosk;
         return Inertia::render('kiosk/Index',[
             // -------------------------------------------
+            'kioskVersionKey' => $kiosk->id."-".$kiosk->version,
             'kiosk' => fn() => $kiosk->except('code'),
             //  -------------------------------------------
             'currentFloorPlan' => function() use($kiosk,$request){

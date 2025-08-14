@@ -1,19 +1,71 @@
 <script setup lang="ts">
+import AlertSound from '@/assets/alert-sound.mp3';
+import PressSound from '@/assets/press-sound.mp3';
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/sheet';
+import { DB_KEYS, useIndexDb } from '@/composables/useIndexDb';
+import { useKioskState } from '@/stores/kioskStore';
+import { Destination } from '@/types/models/destination';
+import { useSound } from '@vueuse/sound';
 import { SearchIcon } from 'lucide-vue-next';
-import { ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+
+const pressSound = useSound(PressSound, {
+    volume: 0.3,
+});
+
+const alertSound = useSound(AlertSound, {
+    volume: 0.1,
+});
 
 const open = ref(false);
 
 function handleOpenChange() {
+    pressSound.play();
     open.value = !open.value;
 }
+const filteredDestinations = ref<Destination[]>([]);
+const destinations = ref<Destination[] | null>([]);
+onMounted(async () => {
+    try {
+        const data = await useIndexDb.getItem<Destination[]>(DB_KEYS.KIOSK_DESTINATIONS);
+        destinations.value = data;
+        if (data) {
+            filteredDestinations.value = data;
+        }
+    } catch (error) {
+        alert('Error loading floor plans');
+    }
+});
+
+const search = ref('');
+
+const handleSearch = () => {
+    const data = destinations.value?.filter((destination) => destination.name.toLowerCase().includes(search.value.toLowerCase()));
+    if (data) {
+        filteredDestinations.value = data;
+    }
+};
+
+watch(search, handleSearch);
+
+const emit = defineEmits(['select']);
+
+const isOpen = ref(false);
+
+const kioskState = useKioskState();
+
+const selectDestination = (destinationId: number, floorPlanId: number) => {
+    isOpen.value = false;
+    kioskState.selectedDestinationid.value = destinationId;
+    kioskState.selectedFloorPlanId.value = floorPlanId;
+    alertSound.play();
+};
 </script>
 
 <template>
-    <Sheet>
+    <Sheet v-model:open="isOpen">
         <SheetTrigger as-child>
             <Button @click="handleOpenChange" class="h-12 w-full justify-start font-mono text-xl font-semibold">
                 <SearchIcon class="size-8" />
@@ -22,8 +74,15 @@ function handleOpenChange() {
         </SheetTrigger>
         <SheetContent side="bottom" class="h-[90%] sm:max-h-[90%]">
             <SheetHeader class="mr-10">
-                <Input placeholder="Search" autofocus="false" />
+                <Input v-model="search" placeholder="Search" autofocus="false" />
             </SheetHeader>
+            <div class="grid gap-4 p-5 sm:grid-cols-5">
+                <template v-for="destination in filteredDestinations" :key="destination.id">
+                    <Button @click="selectDestination(destination.id, destination.floor_plan_id)" variant="outline" size="lg" class="text-xl">
+                        <p>{{ destination.name }}</p>
+                    </Button>
+                </template>
+            </div>
         </SheetContent>
     </Sheet>
 </template>

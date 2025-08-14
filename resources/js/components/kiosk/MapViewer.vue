@@ -8,6 +8,7 @@
             v-if="mapPinIsVisible"
             v-for="destination in destinations"
             :name="destination.name"
+            :active="kioskState.selectedDestinationid.value === destination.id"
             :x-axis="Number(destination.x_axis)"
             :y-axis="Number(destination.y_axis)"
         />
@@ -16,6 +17,7 @@
 
 <script setup lang="ts">
 import { KioskSettings } from '@/enums/kiosk-settings';
+import { useKioskState } from '@/stores/kioskStore';
 import { Destination } from '@/types/models/destination';
 import { useLocalStorage } from '@vueuse/core';
 import KioskDestinationPin from '../KioskDestinationPin.vue';
@@ -23,10 +25,11 @@ import YouAreHere from '../YouAreHere.vue';
 
 const props = defineProps<{
     image: string;
-    kioskXAxis?: number;
-    kioskYAxis?: number;
+    kioskXAxis: number | null;
+    kioskYAxis: number | null;
     destinations: Destination[];
 }>();
 
+const kioskState = useKioskState();
 const mapPinIsVisible = useLocalStorage(KioskSettings.MAP_PIN_VISIBILITY, false);
 </script>

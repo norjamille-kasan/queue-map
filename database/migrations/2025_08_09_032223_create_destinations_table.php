@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('destinations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('floor_plan_id')->constrained();
+            $table->foreignId('floor_plan_id')->references('id')->on('floor_plans');
             $table->string('name');
             $table->string('x_axis');
             $table->string('y_axis');

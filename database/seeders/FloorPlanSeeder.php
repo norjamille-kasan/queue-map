@@ -31,7 +31,7 @@ class FloorPlanSeeder extends Seeder
             ->preservingOriginal()
             ->toMediaCollection('image');
         Destination::factory(10)->create([
-            'floor_plan_id' => $floorPlan->id
+            'floor_plan_id' => $floorPlan->id,
         ]);
     }
 }
