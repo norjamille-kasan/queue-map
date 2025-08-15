@@ -32,6 +32,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'verified','
 
     // --------------------
     Route::resource('kiosks', App\Http\Controllers\Dashboard\Kiosk\KioskController::class);
+    Route::put('kiosks/{kiosk}/status', App\Http\Controllers\Dashboard\Kiosk\KioskStatusController::class)->name('kiosks.status.update');
     Route::resource('floor-plans', App\Http\Controllers\Dashboard\FloorPlan\FloorPlanController::class)
         ->parameters(['floor-plan' => 'floorPlan']);
     Route::resource('floor-plans.destinations', App\Http\Controllers\Dashboard\FloorPlan\DestinationController::class)

@@ -24,7 +24,7 @@
         <button>
             <MapPin
                 @click="showText = !showText"
-                :class="cn('h-8 w-8', props.active ? 'fill-red-600 text-red-200' : 'fill-blue-600 text-blue-200')"
+                :class="cn('h-8 w-8', props.active ? 'h-12 w-12 fill-red-600 text-red-200' : 'fill-blue-600 text-blue-200')"
             />
         </button>
     </div>

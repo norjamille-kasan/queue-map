@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Separator } from '@/components/ui/separator';
+import { Switch } from '@/components/ui/switch';
 import AppLayout from '@/layouts/dashboard/AppLayout.vue';
 import dashboard from '@/routes/dashboard';
 import { type BreadcrumbItem } from '@/types';
@@ -49,6 +51,7 @@ type Form = {
     code: string;
     x_axis: string;
     y_axis: string;
+    is_active: boolean;
     located_at_floor_plan_id: number | null;
     floor_plan_ids: number[];
 };
@@ -58,6 +61,7 @@ const form = useForm<Form>({
     code: props.kiosk.code || '',
     x_axis: props.kiosk.x_axis || '',
     y_axis: props.kiosk.y_axis || '',
+    is_active: props.kiosk.is_active,
     located_at_floor_plan_id: props.kiosk.located_at_floor_plan_id,
     floor_plan_ids: props.kiosk.floor_plans.map((floorPlan) => floorPlan.id),
 });
@@ -129,6 +133,12 @@ watch(
                             >
                                 <Input v-model="form.code" placeholder="KIOSK-1234" type="text" />
                             </FormControl>
+                            <FormControl label="Set to Active" :error="form.errors.is_active">
+                                <Switch v-model="form.is_active" />
+                            </FormControl>
+                            <div>
+                                <Separator />
+                            </div>
                             <FormControl
                                 label="Floor Plans"
                                 hint="Select which floor plans this kiosk will be able to navigate to"

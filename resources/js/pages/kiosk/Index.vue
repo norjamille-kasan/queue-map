@@ -84,12 +84,12 @@ const bootstrap = async () => {
     kioskState.selectedFloorPlanId.value = props.kiosk.located_at_floor_plan_id;
     const INSTALLED_VERSION = await useIndexDb.getItem(DB_KEYS.KIOSK_VERSION_KEY);
     if (!INSTALLED_VERSION) {
-        console.log('Installing first kiosk version');
+        console.log('Installing first kiosk version....');
         await useIndexDb.setItem(DB_KEYS.KIOSK_INFORMATION, props.kiosk);
         await useIndexDb.setItem(DB_KEYS.KIOSK_VERSION_KEY, getKioskVersionKey(props.kiosk.id, props.kiosk.version));
         await loadFloorPlans(props.kiosk.id);
     } else {
-        console.log('Version already installed');
+        console.log('Version already installed!!!!');
         if (INSTALLED_VERSION === props.kioskVersionKey) {
             console.log('Version verified :', INSTALLED_VERSION);
             console.log('Loading existing floor plans and destinations');

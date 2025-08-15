@@ -109,6 +109,7 @@ class KioskController extends Controller
             'code' => ['required','unique:kiosks,code,'.$kiosk->id],
             'x_axis' => ['required'],
             'y_axis' => ['required'],
+            'is_active' => ['required'],
             'located_at_floor_plan_id' => ['required'],
             'floor_plan_ids' => ['required','array','min:1'],
         ]);
@@ -117,6 +118,7 @@ class KioskController extends Controller
             'name' => $data['name'],
             'x_axis' => $data['x_axis'],
             'y_axis' => $data['y_axis'],
+            'is_active' => $data['is_active'],
             'code'=> $data['code'] ?? date('YmdHis'),
             'located_at_floor_plan_id'=> $data['located_at_floor_plan_id'],
             'version' => DB::raw('version + 1')

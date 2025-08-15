@@ -33,7 +33,7 @@ const loadDestinations = async () => {
         const data = await useIndexDb.getItem<Destination[]>(DB_KEYS.KIOSK_DESTINATIONS);
         destinations.value = data;
         if (data) {
-            filteredDestinations.value = data;
+            filteredDestinations.value = data?.sort((a, b) => a.name.localeCompare(b.name));
         }
     } catch (error) {
         alert('Error loading floor plans');
@@ -45,7 +45,7 @@ const search = ref('');
 const handleSearch = () => {
     const data = destinations.value?.filter((destination) => destination.name.toLowerCase().includes(search.value.toLowerCase()));
     if (data) {
-        filteredDestinations.value = data;
+        filteredDestinations.value = data?.sort((a, b) => a.name.localeCompare(b.name));
     }
 };
 
@@ -86,10 +86,15 @@ watch(open, async () => {
                 <SheetTitle></SheetTitle>
                 <SheetDescription></SheetDescription>
             </SheetHeader>
-            <div class="grid gap-4 p-5 sm:grid-cols-5">
+            <div class="grid gap-4 overflow-scroll p-5 sm:grid-cols-2">
                 <template v-for="destination in filteredDestinations" :key="destination.id">
-                    <Button @click="selectDestination(destination.id, destination.floor_plan_id)" variant="outline" size="lg" class="text-xl">
-                        <p>{{ destination.name }}</p>
+                    <Button
+                        @click="selectDestination(destination.id, destination.floor_plan_id)"
+                        variant="secondary"
+                        size="lg"
+                        class="text-md h-16 border wrap-break-word"
+                    >
+                        {{ destination.name }} {{ destination.name }}
                     </Button>
                 </template>
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Kiosk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class KioskSessionController extends Controller
 {
@@ -21,6 +22,12 @@ class KioskSessionController extends Controller
         ]);
 
         $kiosk = Kiosk::whereCode($data['code'])->first();
+
+        if($kiosk->is_active === false){
+            throw ValidationException::withMessages([
+                'code' => 'Kiosk is not active'
+            ]);
+        }
 
 
         $user = $kiosk->user;

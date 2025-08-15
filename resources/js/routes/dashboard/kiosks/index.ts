@@ -1,4 +1,5 @@
 import { queryParams, type QueryParams } from './../../../wayfinder'
+import status from './status'
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::index
  * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:22
@@ -362,7 +363,7 @@ update.patch = (args: { kiosk: number | { id: number } } | [kiosk: number | { id
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::destroy
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:133
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:135
  * @route '/dashboard/kiosks/{kiosk}'
  */
 export const destroy = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -380,7 +381,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::destroy
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:133
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:135
  * @route '/dashboard/kiosks/{kiosk}'
  */
 destroy.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -411,7 +412,7 @@ destroy.url = (args: { kiosk: number | { id: number } } | [kiosk: number | { id:
 
 /**
 * @see \App\Http\Controllers\Dashboard\Kiosk\KioskController::destroy
- * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:133
+ * @see app/Http/Controllers/Dashboard/Kiosk/KioskController.php:135
  * @route '/dashboard/kiosks/{kiosk}'
  */
 destroy.delete = (args: { kiosk: number | { id: number } } | [kiosk: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -429,6 +430,7 @@ show,
 edit,
 update,
 destroy,
+status,
 }
 
 export default kiosks

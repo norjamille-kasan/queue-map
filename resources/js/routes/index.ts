@@ -161,7 +161,7 @@ redirect.options = (options?: { query?: QueryParams, mergeQuery?: QueryParams })
 
 /**
 * @see \App\Http\Controllers\Kiosk\KioskSessionController::openKiosk
- * @see app/Http/Controllers/Kiosk/KioskSessionController.php:15
+ * @see app/Http/Controllers/Kiosk/KioskSessionController.php:16
  * @route '/open-kiosk'
  */
 export const openKiosk = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -179,7 +179,7 @@ openKiosk.definition = {
 
 /**
 * @see \App\Http\Controllers\Kiosk\KioskSessionController::openKiosk
- * @see app/Http/Controllers/Kiosk/KioskSessionController.php:15
+ * @see app/Http/Controllers/Kiosk/KioskSessionController.php:16
  * @route '/open-kiosk'
  */
 openKiosk.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -188,7 +188,7 @@ openKiosk.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) =>
 
 /**
 * @see \App\Http\Controllers\Kiosk\KioskSessionController::openKiosk
- * @see app/Http/Controllers/Kiosk/KioskSessionController.php:15
+ * @see app/Http/Controllers/Kiosk/KioskSessionController.php:16
  * @route '/open-kiosk'
  */
 openKiosk.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
