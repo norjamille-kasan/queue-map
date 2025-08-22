@@ -12,7 +12,7 @@
             :class="
                 cn(
                     'mb-1 rounded-full px-3 py-1 text-xs font-bold whitespace-nowrap text-white uppercase shadow-md',
-                    showText || props.active ? 'opacity-100' : 'opacity-0',
+                    showText || props.active || showTextGlobal ? 'opacity-100' : 'opacity-0',
                     props.active ? 'bg-red-500' : 'bg-blue-500',
                 )
             "
@@ -31,7 +31,9 @@
 </template>
 
 <script setup lang="ts">
+import { KioskSettings } from '@/enums/kiosk-settings';
 import { cn } from '@/lib/utils';
+import { useLocalStorage } from '@vueuse/core';
 import { MapPin } from 'lucide-vue-next';
 import { ref } from 'vue';
 
@@ -46,6 +48,8 @@ const props = withDefaults(
         active: false,
     },
 );
+
+const showTextGlobal = useLocalStorage(KioskSettings.PIN_LABEL_VISIBILITY, false);
 
 const showText = ref(false);
 </script>

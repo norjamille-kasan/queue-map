@@ -5,12 +5,13 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } fr
 import { useKioskState } from '@/stores/kioskStore';
 import { formatDate } from '@vueuse/core';
 import { useSound } from '@vueuse/sound';
-import { CalendarIcon, CogIcon, RefreshCcw } from 'lucide-vue-next';
+import { CalendarIcon, RefreshCcw } from 'lucide-vue-next';
 import { computed } from 'vue';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
 import FindPlace from './FindPlace.vue';
 import MapPinVisibility from './MapPinVisibility.vue';
+import PinLabelToggle from './PinLabelToggle.vue';
 
 const errorSound = useSound(ErrorSound, {
     volume: 0.1,
@@ -36,12 +37,12 @@ const hasFilter = computed(() => {
         <SidebarHeader class="border-b">
             <div class="flex items-center gap-2">
                 <CalendarIcon class="size-8" />
-                <h1 class="text-xl font-bold uppercase">
-                    {{ formatDate(new Date(), 'MMMM d , YYYY') }}
+                <h1 class="text-lg font-bold uppercase">
+                    {{ formatDate(new Date(), 'MMMM D , YYYY') }}
                 </h1>
             </div>
         </SidebarHeader>
-        <SidebarContent class="p-2">
+        <SidebarContent class="bg-primary/20 p-2">
             <ul class="space-y-2">
                 <li>
                     <Suspense>
@@ -57,21 +58,25 @@ const hasFilter = computed(() => {
                 <li>
                     <h1 class="text-lg font-semibold uppercase">Controls</h1>
                 </li>
-
                 <li>
                     <MapPinVisibility />
                 </li>
+                <li>
+                    <PinLabelToggle />
+                </li>
                 <li v-if="hasFilter">
-                    <Button variant="destructive" class="h-12 w-full justify-start font-mono text-xl font-semibold uppercase" @click="resetSelection">
-                        <RefreshCcw class="size-8" />
+                    <Button
+                        variant="outline"
+                        class="h-12 w-full justify-start font-mono text-xl font-semibold text-destructive uppercase hover:text-destructive"
+                        @click="resetSelection"
+                    >
+                        <RefreshCcw class="size-8 text-destructive" />
                         RESET
                     </Button>
                 </li>
             </ul>
             <SidebarFooter class="mt-auto">
-                <Button variant="outline" class="h-12">
-                    <CogIcon class="size-8" />
-                </Button>
+                <Button variant="secondary" @click="kioskState.selectedFloorPlanId.value = null" class="h-12 text-2xl"> Where Am I </Button>
             </SidebarFooter>
         </SidebarContent>
         <SidebarRail />
