@@ -55,7 +55,6 @@ defineOptions({
 const props = defineProps<{
     kiosk: Kiosk;
     currentFloorPlan: FloorPlan & { media: Media[] };
-    destinations: Destination[];
     kioskVersionKey: string;
 }>();
 
@@ -77,6 +76,7 @@ interface FloorPlanWithDestinations extends FloorPlan {
 const floorPlans = ref<FloorPlanWithDestinations[]>([]);
 
 onMounted(async () => {
+    kioskState.currentFloorPlanId.value = props.kiosk.located_at_floor_plan_id;
     await bootstrap();
 });
 

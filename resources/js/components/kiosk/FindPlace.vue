@@ -10,6 +10,7 @@ import { SearchIcon } from 'lucide-vue-next';
 import { ref, watch } from 'vue';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import KioskKeyboard from './KioskKeyboard.vue';
 
 const pressSound = useSound(PressSound, {
     volume: 0.3,
@@ -41,6 +42,13 @@ const loadDestinations = async () => {
 };
 
 const search = ref('');
+
+const onChange = (value: string): void => {
+    search.value = value;
+};
+const onKeyPress = (button: string): void => {
+    pressSound.play();
+};
 
 const handleSearch = () => {
     const data = destinations.value?.filter((destination) => destination.name.toLowerCase().includes(search.value.toLowerCase()));
@@ -80,13 +88,13 @@ watch(open, async () => {
                 FIND PLACE
             </Button>
         </SheetTrigger>
-        <SheetContent side="bottom" class="h-[90%] sm:max-h-[90%]">
+        <SheetContent side="bottom" class="h-[100%] sm:max-h-[100%]">
             <SheetHeader class="mr-10">
-                <Input v-model="search" class="h-12" placeholder="Search" autofocus="false" />
+                <Input v-model="search" class="search-input h-12" placeholder="Search" autofocus="false" />
                 <SheetTitle></SheetTitle>
                 <SheetDescription></SheetDescription>
             </SheetHeader>
-            <div class="grid gap-4 overflow-scroll p-5 sm:grid-cols-2">
+            <div class="mb-72 grid gap-4 overflow-scroll p-5 sm:grid-cols-2">
                 <template v-for="destination in filteredDestinations" :key="destination.id">
                     <Button
                         @click="selectDestination(destination.id, destination.floor_plan_id)"
@@ -97,6 +105,11 @@ watch(open, async () => {
                         {{ destination.name }} {{ destination.name }}
                     </Button>
                 </template>
+            </div>
+            <div class="absolute bottom-0 flex w-full items-center">
+                <div class="mx-auto w-5xl max-w-5xl">
+                    <KioskKeyboard :input="search" @onChange="onChange" @onKeyPress="onKeyPress" />
+                </div>
             </div>
         </SheetContent>
     </Sheet>

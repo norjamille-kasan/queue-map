@@ -2,7 +2,7 @@
     <Button @click="click" variant="outline" class="h-12 w-full justify-start font-mono text-xl font-semibold uppercase">
         <EyeClosed v-if="!isOpen" class="size-8" />
         <EyeIcon v-else class="size-8" />
-        <span>Map Pin</span>
+        <span>Pin Label</span>
     </Button>
 </template>
 
@@ -23,5 +23,5 @@ const pressSound = useSound(PressSound, {
     volume: 0.3,
 });
 
-const isOpen = useLocalStorage(KioskSettings.MAP_PIN_VISIBILITY, false);
+const isOpen = useLocalStorage(KioskSettings.PIN_LABEL_VISIBILITY, false);
 </script>
