@@ -48,7 +48,6 @@ class KioskController extends Controller
     {
         $data = $request->validate([
             'name'=> ['required','max:50','unique:kiosks,name'],
-            'code' => ['required','unique:kiosks,code'],
             'x_axis' => ['required'],
             'y_axis' => ['required'],
             'located_at_floor_plan_id' => ['required'],
@@ -64,7 +63,7 @@ class KioskController extends Controller
 
         $kiosk = Kiosk::create([
             'user_id'=>$user->id,
-            'code'=> $data['code'] ?? date('YmdHis'),
+            'code'=> $data['code'] ?? "KIOSK-".date('ymdHis'),
             'name' => $data['name'],
             'x_axis' => $data['x_axis'],
             'y_axis' => $data['y_axis'],

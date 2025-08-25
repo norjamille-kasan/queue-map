@@ -8,14 +8,18 @@ import Spinner from '@/components/Spinner.vue';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Separator } from '@/components/ui/separator';
 import AppLayout from '@/layouts/dashboard/AppLayout.vue';
 import dashboard from '@/routes/dashboard';
 import { type BreadcrumbItem } from '@/types';
 import { FloorPlan } from '@/types/models/floor-plan';
 import { Media } from '@/types/models/media';
 import { Head, useForm } from '@inertiajs/vue3';
+import { InfoIcon } from 'lucide-vue-next';
 import { ref, watch } from 'vue';
+import { toast } from 'vue-sonner';
 
 const props = defineProps<{
     floorPlans: Array<FloorPlan & { media: Media[] }>;
@@ -40,7 +44,6 @@ defineOptions({
 
 type Form = {
     name: string;
-    code: string;
     x_axis: string;
     y_axis: string;
     located_at_floor_plan_id: number | null;
@@ -49,7 +52,6 @@ type Form = {
 
 const form = useForm<Form>({
     name: '',
-    code: '',
     x_axis: '',
     y_axis: '',
     located_at_floor_plan_id: null,
@@ -73,6 +75,10 @@ function handleSelectKioskPosition(event: MouseEvent) {
 }
 
 const submit = () => {
+    if (form.x_axis.length === 0 || form.y_axis.length === 0) {
+        toast.error('Please select a location on the floor plan.');
+        return;
+    }
     form.submit(dashboard.kiosks.store());
 };
 
@@ -109,14 +115,6 @@ watch(
                                 <Input v-model="form.name" placeholder="e.g. Kiosk 1" type="text" />
                             </FormControl>
                             <FormControl
-                                label="Code"
-                                hint="It will be use to open the kiosk"
-                                :error="form.errors.code"
-                                help="Leave it blank if you want to generate a random code"
-                            >
-                                <Input v-model="form.code" placeholder="KIOSK-1234" type="text" />
-                            </FormControl>
-                            <FormControl
                                 label="Floor Plans"
                                 hint="Select which floor plans this kiosk will be able to navigate to"
                                 required
@@ -136,8 +134,11 @@ watch(
                                     </SelectContent>
                                 </Select>
                             </FormControl>
-                            <div>
+                            <div class="space-y-4">
+                                <Separator />
+
                                 <template v-if="previewLocationUrl">
+                                    <Label class="text-primary"> <InfoIcon /> Click on the image to select the location of the kiosk </Label>
                                     <div class="relative inline-block">
                                         <img
                                             ref="imageRef"
