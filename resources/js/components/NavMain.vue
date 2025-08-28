@@ -22,6 +22,7 @@ const page = usePage();
                     as-child
                     :is-active="item.absolute ? item.href === page.url : page.url.startsWith(item.href)"
                     :tooltip="item.title"
+                    class="border border-transparent data-[active=true]:border-primary/30 data-[active=true]:bg-primary/20 data-[active=true]:text-primary"
                 >
                     <Link :href="item.href">
                         <component :is="item.icon" />

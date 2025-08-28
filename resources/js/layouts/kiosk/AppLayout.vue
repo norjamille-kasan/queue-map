@@ -6,6 +6,8 @@ import { useColorMode } from '@vueuse/core';
 const mode = useColorMode({
     initialValue: 'light',
 });
+
+mode.value = 'light';
 </script>
 
 <template>

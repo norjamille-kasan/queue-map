@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import AlertSound from '@/assets/alert-sound.mp3';
 import ErrorSound from '@/assets/error-sound.mp3';
+
 import type { SidebarProps } from '@/components/ui/sidebar';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '@/components/ui/sidebar';
 import { useKioskState } from '@/stores/kioskStore';
-import { formatDate } from '@vueuse/core';
+import { useNow } from '@vueuse/core';
 import { useSound } from '@vueuse/sound';
 import { CalendarIcon, RefreshCcw } from 'lucide-vue-next';
 import { computed } from 'vue';
@@ -13,7 +15,13 @@ import FindPlace from './FindPlace.vue';
 import MapPinVisibility from './MapPinVisibility.vue';
 import PinLabelToggle from './PinLabelToggle.vue';
 
+const now = useNow();
+
 const errorSound = useSound(ErrorSound, {
+    volume: 0.1,
+});
+
+const alertSound = useSound(AlertSound, {
     volume: 0.1,
 });
 
@@ -30,6 +38,11 @@ const resetSelection = () => {
 const hasFilter = computed(() => {
     return kioskState.selectedDestinationid.value || kioskState.selectedFloorPlanId.value;
 });
+
+const whereAmI = () => {
+    alertSound.play();
+    kioskState.selectedFloorPlanId.value = null;
+};
 </script>
 
 <template>
@@ -37,9 +50,7 @@ const hasFilter = computed(() => {
         <SidebarHeader class="border-b">
             <div class="flex items-center gap-2">
                 <CalendarIcon class="size-8" />
-                <h1 class="text-lg font-bold uppercase">
-                    {{ formatDate(new Date(), 'MMMM D , YYYY') }}
-                </h1>
+                <h1 class="text-lg font-bold uppercase">{{ now.toDateString() }} {{ now.toLocaleTimeString() }}</h1>
             </div>
         </SidebarHeader>
         <SidebarContent class="bg-primary/20 p-2">
@@ -76,7 +87,7 @@ const hasFilter = computed(() => {
                 </li>
             </ul>
             <SidebarFooter class="mt-auto">
-                <Button variant="secondary" @click="kioskState.selectedFloorPlanId.value = null" class="h-12 text-2xl"> Where Am I </Button>
+                <Button variant="secondary" @click="whereAmI" class="h-12 text-2xl"> Where Am I </Button>
             </SidebarFooter>
         </SidebarContent>
         <SidebarRail />

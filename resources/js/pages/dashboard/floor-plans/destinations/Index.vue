@@ -82,6 +82,7 @@ const pinnedDestination = ref<number | null>();
     <PageContent :breadcrumbs="breadcrumbs">
         <div class="grid gap-4 sm:grid-cols-12">
             <div class="space-y-2 sm:col-span-7">
+                <h1 class="text-xl font-semibold">Click the map to add a destination</h1>
                 <div class="relative inline-block">
                     <img
                         ref="imageRef"
@@ -90,7 +91,6 @@ const pinnedDestination = ref<number | null>();
                         alt="floor plan"
                         @click="handleSelectPinPosition"
                     />
-
                     <FloorPlanPin
                         :class="pinnedDestination === destination.id ? 'animate-pulse fill-red-500 text-red-300' : ''"
                         v-for="destination in destinations"

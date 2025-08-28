@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import Keyboard from 'simple-keyboard';
 import 'simple-keyboard/build/css/index.css';
 import { onMounted, ref, watch } from 'vue';
