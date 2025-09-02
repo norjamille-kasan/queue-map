@@ -8,6 +8,7 @@ import Spinner from '@/components/Spinner.vue';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
@@ -18,6 +19,7 @@ import { FloorPlan } from '@/types/models/floor-plan';
 import { Kiosk } from '@/types/models/kiosk';
 import { Media } from '@/types/models/media';
 import { Head, useForm } from '@inertiajs/vue3';
+import { InfoIcon } from 'lucide-vue-next';
 import { onMounted, ref, watch } from 'vue';
 
 const props = defineProps<{
@@ -159,8 +161,11 @@ watch(
                                     </SelectContent>
                                 </Select>
                             </FormControl>
-                            <div>
+                            <div class="space-y-4">
                                 <template v-if="previewLocationUrl">
+                                    <Label class="text-primary" v-if="form.located_at_floor_plan_id !== props.kiosk.located_at_floor_plan_id">
+                                        <InfoIcon /> Click on the image to select the location of the kiosk
+                                    </Label>
                                     <div class="relative inline-block">
                                         <img
                                             ref="imageRef"

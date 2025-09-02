@@ -40,11 +40,13 @@ defineOptions({
 });
 
 type TForm = {
+    _method: 'PUT';
     name: string;
     image: File | null;
 };
 
 const form = useForm<TForm>({
+    _method: 'PUT',
     name: props.floorPlan.name,
     image: null,
 });
@@ -55,7 +57,7 @@ const floorPlanPreview = computed(() => {
 });
 
 const submit = () => {
-    form.submit(dashboard.floorPlans.update(props.floorPlan.id), {
+    form.post(dashboard.floorPlans.update(props.floorPlan.id).url, {
         preserveScroll: true,
     });
 };
