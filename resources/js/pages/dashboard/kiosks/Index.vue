@@ -78,7 +78,7 @@ const deleteKiosk = async (floorPlanId: number) => {
                         </TableCell>
                         <TableCell>
                             <Badge variant="outline">
-                                <div :class="cn('size-2 rounded-full', kiosk.is_active ? 'bg-green-500' : 'bg-red-500')"></div>
+                                <div :class="cn('size-2 rounded-full', kiosk.is_active ? 'bg-blue-500' : 'bg-red-500')"></div>
                                 {{ kiosk.is_active ? 'Active' : 'Inactive' }}
                             </Badge>
                         </TableCell>

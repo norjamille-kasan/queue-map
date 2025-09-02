@@ -1,21 +1,11 @@
 <template>
     <PageContent>
-        <template #header>
-            <div class="flex items-center gap-4 p-2">
-                <div class="flex items-center gap-2">
-                    <Link href="/">
-                        <MapPinned class="size-8" />
-                    </Link>
-                    <h1 class="text-xl font-bold uppercase">KIOSK LOCATION - {{ props.currentFloorPlan.name }}</h1>
-                </div>
-            </div>
-        </template>
-        <div class="flex w-full flex-col">
-            <div v-if="doneSetup" class="mt-10">
+        <div class="flex h-full w-full items-center justify-center rounded-lg bg-white/40 backdrop-blur-md">
+            <div v-if="doneSetup" class="h-full w-full">
                 <template v-for="item in floorPlans" :key="item.id">
-                    <div v-if="item.id === showableFloorPlan" class="flex justify-center">
+                    <div v-if="item.id === showableFloorPlan" class="flex h-full items-center justify-center">
                         <div>
-                            <div class="m-3 bg-primary p-2 text-primary-foreground">
+                            <div class="m-3 bg-white p-4 font-semibold text-primary uppercase">
                                 <h1>{{ item.name }}</h1>
                             </div>
                         </div>
@@ -43,8 +33,6 @@ import { Destination } from '@/types/models/destination';
 import { FloorPlan } from '@/types/models/floor-plan';
 import { Kiosk } from '@/types/models/kiosk';
 import { Media } from '@/types/models/media';
-import { Link } from '@inertiajs/vue3';
-import { MapPinned } from 'lucide-vue-next';
 import { $fetch } from 'ofetch';
 import { computed, onMounted, ref } from 'vue';
 

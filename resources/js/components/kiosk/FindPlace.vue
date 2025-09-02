@@ -83,7 +83,7 @@ watch(open, async () => {
 <template>
     <Sheet v-model:open="isOpen">
         <SheetTrigger as-child>
-            <Button @click="handleOpenChange" class="h-12 w-full justify-start font-mono text-xl font-semibold">
+            <Button @click="handleOpenChange" class="h-12 w-full justify-start rounded-none font-mono text-xl font-semibold">
                 <SearchIcon class="size-8" />
                 FIND PLACE
             </Button>

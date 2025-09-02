@@ -53,7 +53,7 @@ const whereAmI = () => {
                 <h1 class="text-lg font-bold uppercase">{{ now.toDateString() }} {{ now.toLocaleTimeString() }}</h1>
             </div>
         </SidebarHeader>
-        <SidebarContent class="bg-primary/20 p-2">
+        <SidebarContent class="p-2">
             <ul class="space-y-2">
                 <li>
                     <Suspense>
@@ -78,7 +78,7 @@ const whereAmI = () => {
                 <li v-if="hasFilter">
                     <Button
                         variant="outline"
-                        class="h-12 w-full justify-start font-mono text-xl font-semibold text-destructive uppercase hover:text-destructive"
+                        class="h-12 w-full justify-start rounded-none font-mono text-xl font-semibold text-destructive uppercase hover:text-destructive"
                         @click="resetSelection"
                     >
                         <RefreshCcw class="size-8 text-destructive" />
@@ -87,7 +87,7 @@ const whereAmI = () => {
                 </li>
             </ul>
             <SidebarFooter class="mt-auto">
-                <Button variant="secondary" @click="whereAmI" class="h-12 text-2xl"> Where Am I </Button>
+                <!-- <Button v-if="!hasFilter" variant="secondary" @click="whereAmI" class="h-12 text-2xl"> Where Am I </Button> -->
             </SidebarFooter>
         </SidebarContent>
         <SidebarRail />

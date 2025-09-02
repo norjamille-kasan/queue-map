@@ -1,5 +1,5 @@
 <template>
-    <Button @click="click" variant="outline" class="h-12 w-full justify-start font-mono text-xl font-semibold uppercase">
+    <Button @click="click" variant="outline" class="h-12 w-full justify-start rounded-none font-mono text-xl font-semibold uppercase">
         <EyeClosed v-if="!isOpen" class="size-8" />
         <EyeIcon v-else class="size-8" />
         <span>Pin Label</span>
