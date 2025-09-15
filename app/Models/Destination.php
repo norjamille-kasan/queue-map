@@ -10,4 +10,11 @@ class Destination extends Model
 {
     use HasFactory;
     use DestinationRelations;
+
+    protected function casts()
+    {
+        return [
+            'text_redirection' => 'array',
+        ];
+    }
 }

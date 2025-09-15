@@ -40,6 +40,7 @@ class DestinationController extends Controller
             'name'=> ['required','max:50'],
             'x_axis' => ['required'],
             'y_axis' => ['required'],
+            'text_redirection' => ['nullable','array'],
         ]);
 
         $floorPlan->destinations()->create($data);
@@ -77,6 +78,7 @@ class DestinationController extends Controller
     {
         $data = $request->validate([
             'name'=> ['required','max:50'],
+            'text_redirection' => ['nullable','array'],
         ]);
 
         $destination->update($data);
@@ -90,8 +92,16 @@ class DestinationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(FloorPlan $floorPlan,Destination $destination)
     {
-        //
+        abort_unless($destination->floorPlan()->is($floorPlan), 403);
+
+        $destination->delete();
+
+        $floorPlan->kiosks()->update([
+            'version' => DB::raw('version + 1')
+        ]);
+
+        return back()->toast('success','Destination deleted successfully');
     }
 }

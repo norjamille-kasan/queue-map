@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ConfirmDialog from '@/components/ConfirmDialog.vue';
 import CreateDestination from '@/components/dashboard/floor-plans/CreateDestination.vue';
 import PageContent from '@/components/dashboard/PageContent.vue';
 import FloorPlanPin from '@/components/FloorPlanPin.vue';
@@ -8,6 +9,7 @@ import { type BreadcrumbItem } from '@/types';
 import { Destination } from '@/types/models/destination';
 import { FloorPlan } from '@/types/models/floor-plan';
 import { Head, router } from '@inertiajs/vue3';
+import { useConfirmDialog } from '@vueuse/core';
 import { EditIcon, PinIcon, TrashIcon } from 'lucide-vue-next';
 import { ref } from 'vue';
 const props = defineProps<{
@@ -75,6 +77,15 @@ function handleSelectPinPosition(event: MouseEvent) {
 }
 
 const pinnedDestination = ref<number | null>();
+
+const confirmDeleteDestination = useConfirmDialog();
+
+const deleteDestination = async (destinationId: number) => {
+    const { isCanceled } = await confirmDeleteDestination.reveal();
+    if (!isCanceled) {
+        router.delete(dashboard.floorPlans.destinations.destroy({ floor_plan: props.floorPlan.id, destination: destinationId }).url);
+    }
+};
 </script>
 
 <template>
@@ -120,7 +131,7 @@ const pinnedDestination = ref<number | null>();
                                 >
                                     <EditIcon class="size-4" />
                                 </ModalLink>
-                                <button>
+                                <button @click="deleteDestination(destination.id)">
                                     <TrashIcon class="size-4 text-destructive" />
                                 </button>
                             </div>
@@ -130,5 +141,10 @@ const pinnedDestination = ref<number | null>();
             </div>
         </div>
         <CreateDestination v-model="showCreateDestination" :floor-plan-id="floorPlan.id" :x-axis="location.x" :y-axis="location.y" />
+        <ConfirmDialog
+            :open="confirmDeleteDestination.isRevealed.value"
+            @cancel="confirmDeleteDestination.cancel"
+            @confirm="confirmDeleteDestination.confirm"
+        />
     </PageContent>
 </template>

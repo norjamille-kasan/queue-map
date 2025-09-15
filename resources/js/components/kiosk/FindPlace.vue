@@ -65,10 +65,11 @@ const isOpen = ref(false);
 
 const kioskState = useKioskState();
 
-const selectDestination = (destinationId: number, floorPlanId: number) => {
+const selectDestination = (destinationId: number, floorPlanId: number, textDirection: string[] | null) => {
     isOpen.value = false;
     kioskState.selectedDestinationid.value = destinationId;
     kioskState.selectedFloorPlanId.value = floorPlanId;
+    kioskState.currentTextDirection.value = textDirection;
     alertSound.play();
 };
 
@@ -97,7 +98,7 @@ watch(open, async () => {
             <div class="mb-72 grid gap-4 overflow-scroll p-5 sm:grid-cols-2">
                 <template v-for="destination in filteredDestinations" :key="destination.id">
                     <Button
-                        @click="selectDestination(destination.id, destination.floor_plan_id)"
+                        @click="selectDestination(destination.id, destination.floor_plan_id, destination.text_redirection)"
                         variant="secondary"
                         size="lg"
                         class="text-md h-16 border wrap-break-word"

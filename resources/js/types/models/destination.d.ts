@@ -5,6 +5,7 @@ export interface Destination {
     x_axis: string;
     y_axis: string;
     path_points: any;
+    text_redirection: string[];
     created_at: string;
     updated_at: string;
 }
