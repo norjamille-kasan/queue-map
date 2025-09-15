@@ -6,7 +6,7 @@ import TextHelp from '@/components/TextHelp.vue';
 import { Badge } from '@/components/ui/badge';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Table, TableBody, TableCell, TableEmpty, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import AppLayout from '@/layouts/dashboard/AppLayout.vue';
 import { cn } from '@/lib/utils';
 import dashboard from '@/routes/dashboard';
@@ -100,6 +100,9 @@ const deleteKiosk = async (floorPlanId: number) => {
                             </div>
                         </TableCell>
                     </TableRow>
+                    <TableEmpty v-if="props.kiosks.data.length === 0" :colspan="100">
+                        <span class="text-muted-foreground">No kiosks found.</span>
+                    </TableEmpty>
                 </TableBody>
             </Table>
         </div>
