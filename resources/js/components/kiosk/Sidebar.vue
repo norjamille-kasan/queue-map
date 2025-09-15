@@ -7,7 +7,7 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } fr
 import { useKioskState } from '@/stores/kioskStore';
 import { useNow } from '@vueuse/core';
 import { useSound } from '@vueuse/sound';
-import { CalendarIcon, RefreshCcw } from 'lucide-vue-next';
+import { RefreshCcw } from 'lucide-vue-next';
 import { computed } from 'vue';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
@@ -47,13 +47,16 @@ const whereAmI = () => {
 
 <template>
     <Sidebar v-bind="props">
-        <SidebarHeader class="border-b">
-            <div class="flex items-center gap-2">
-                <CalendarIcon class="size-8" />
-                <h1 class="text-lg font-bold uppercase">{{ now.toDateString() }} {{ now.toLocaleTimeString() }}</h1>
+        <SidebarHeader class="">
+            <div class="flex items-center justify-center gap-2 border-b">
+                <img src="/images/logo.jpg" class="h-24 w-24" />
             </div>
         </SidebarHeader>
         <SidebarContent class="p-2">
+            <!-- <div class="flex items-center gap-2">
+                <CalendarIcon class="size-8" />
+                <h1 class="text-lg font-bold uppercase">{{ now.toDateString() }} {{ now.toLocaleTimeString() }}</h1>
+            </div> -->
             <ul class="space-y-2">
                 <li>
                     <Suspense>

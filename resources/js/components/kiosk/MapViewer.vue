@@ -1,6 +1,6 @@
 <template>
     <div class="relative flex h-full items-center justify-center">
-        <img ref="imageRef" class="h-[800px] max-h-[800px] max-w-full" :src="image" alt="floor plan" />
+        <img ref="imageRef" class="h-[1000px] max-h-[1000px] max-w-full" :src="image" alt="floor plan" />
         <template v-if="props.kioskXAxis && props.kioskYAxis && mapPinIsVisible">
             <YouAreHere :x-axis="Number(props.kioskXAxis)" :y-axis="Number(props.kioskYAxis)" />
         </template>
