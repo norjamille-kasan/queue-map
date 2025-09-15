@@ -4,19 +4,15 @@
             <div v-if="doneSetup" class="h-full w-full">
                 <template v-for="item in floorPlans" :key="item.id">
                     <div v-if="item.id === showableFloorPlan" class="flex h-full items-center justify-center">
-                        <div>
-                            <div class="m-3 bg-white p-4 font-semibold text-primary uppercase">
-                                <h1>{{ item.name }}</h1>
-                            </div>
-                        </div>
                         <MapViewer
                             :destinations="item.destinations"
                             :kiosk-x-axis="props.kiosk.located_at_floor_plan_id === item.id ? Number(props.kiosk.x_axis) : null"
                             :kiosk-y-axis="props.kiosk.located_at_floor_plan_id === item.id ? Number(props.kiosk.y_axis) : null"
                             :image="item.media[0].original_url"
                         />
-                        <div v-if="kioskState.currentTextDirection.value" class="rounded-t-lg bg-white p-2 sm:w-3xl sm:max-w-3xl">
-                            <h1 v-for="(destination, index) in kioskState.currentTextDirection.value" :key="index">
+                        <div v-if="kioskState.currentTextDirection.value" class="rounded-l-lg bg-white p-4 sm:w-xl sm:max-w-3xl">
+                            <h1 v-for="(destination, index) in kioskState.currentTextDirection.value" :key="index" class="flex items-center gap-2">
+                                <div class="h-2 w-2 rounded-full bg-primary"></div>
                                 <h1>{{ destination }}</h1>
                             </h1>
                         </div>
