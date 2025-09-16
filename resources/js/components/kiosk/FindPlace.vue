@@ -103,7 +103,7 @@ watch(open, async () => {
                         size="lg"
                         class="text-md h-16 border wrap-break-word"
                     >
-                        {{ destination.name }} {{ destination.name }}
+                        {{ destination.name }} 
                     </Button>
                 </template>
             </div>

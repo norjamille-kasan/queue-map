@@ -10,7 +10,7 @@
                             :kiosk-y-axis="props.kiosk.located_at_floor_plan_id === item.id ? Number(props.kiosk.y_axis) : null"
                             :image="item.media[0].original_url"
                         />
-                        <div v-if="kioskState.currentTextDirection.value" class="rounded-l-lg bg-white p-4 sm:w-xl sm:max-w-3xl">
+                        <div v-if="kioskState.currentTextDirection.value && kioskState.currentTextDirection.value.length > 0" class="rounded-l-lg bg-white p-4 sm:w-xl sm:max-w-3xl">
                             <div v-for="(destination, index) in kioskState.currentTextDirection.value" :key="index" class="flex items-center gap-2">
                                 <div class="h-2 w-2 rounded-full bg-primary"></div>
                                 <h1>{{ destination }}</h1>
