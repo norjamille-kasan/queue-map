@@ -11,10 +11,10 @@
                             :image="item.media[0].original_url"
                         />
                         <div v-if="kioskState.currentTextDirection.value" class="rounded-l-lg bg-white p-4 sm:w-xl sm:max-w-3xl">
-                            <h1 v-for="(destination, index) in kioskState.currentTextDirection.value" :key="index" class="flex items-center gap-2">
+                            <div v-for="(destination, index) in kioskState.currentTextDirection.value" :key="index" class="flex items-center gap-2">
                                 <div class="h-2 w-2 rounded-full bg-primary"></div>
                                 <h1>{{ destination }}</h1>
-                            </h1>
+                            </div>
                         </div>
                     </div>
                 </template>
