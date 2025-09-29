@@ -5,6 +5,8 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { DB_KEYS, useIndexDb } from '@/composables/useIndexDb';
 import { useKioskState } from '@/stores/kioskStore';
 import { Destination } from '@/types/models/destination';
+import { FloorPlan } from '@/types/models/floor-plan';
+import { Media } from '@/types/models/media';
 import { useSound } from '@vueuse/sound';
 import { SearchIcon } from 'lucide-vue-next';
 import { ref, watch } from 'vue';
@@ -22,19 +24,30 @@ const alertSound = useSound(AlertSound, {
 
 const open = ref(false);
 
+interface FloorPlanWithDestinations extends FloorPlan {
+    destinations: Destination[];
+    media: Media[];
+}
+
 function handleOpenChange() {
     pressSound.play();
     open.value = !open.value;
 }
 const filteredDestinations = ref<Destination[]>([]);
 const destinations = ref<Destination[] | null>([]);
+const floorPlans = ref<FloorPlanWithDestinations[] | null>([]);
 
 const loadDestinations = async () => {
     try {
         const data = await useIndexDb.getItem<Destination[]>(DB_KEYS.KIOSK_DESTINATIONS);
+        const _fp = await useIndexDb.getItem<FloorPlanWithDestinations[]>(DB_KEYS.KIOSK_FLOOR_PLANS);
         destinations.value = data;
         if (data) {
             filteredDestinations.value = data?.sort((a, b) => a.name.localeCompare(b.name));
+        }
+        if (_fp) {
+            floorPlans.value = _fp;
+            console.log(floorPlans.value);
         }
     } catch (error) {
         alert('Error loading floor plans');
@@ -75,7 +88,6 @@ const selectDestination = (destinationId: number, floorPlanId: number, textDirec
 
 watch(open, async () => {
     if (open.value && filteredDestinations.value.length === 0) {
-        console.log('Loading destinations');
         await loadDestinations();
     }
 });
@@ -95,16 +107,40 @@ watch(open, async () => {
                 <SheetTitle></SheetTitle>
                 <SheetDescription></SheetDescription>
             </SheetHeader>
-            <div class="mb-72 grid gap-4 overflow-scroll p-5 sm:grid-cols-2">
+            <div v-if="search.length > 0" class="mb-72 grid gap-4 overflow-scroll p-5 sm:grid-cols-2">
                 <template v-for="destination in filteredDestinations" :key="destination.id">
                     <Button
                         @click="selectDestination(destination.id, destination.floor_plan_id, destination.text_redirection)"
                         variant="secondary"
                         size="lg"
-                        class="text-md h-16 border wrap-break-word"
+                        class="text-md relative h-16 overflow-hidden border wrap-break-word"
                     >
-                        {{ destination.name }} 
+                        <div class="absolute top-0 left-0 bg-primary px-2 text-white">
+                            {{ floorPlans?.find((fp) => fp.id === destination.floor_plan_id)?.name }}
+                        </div>
+                        {{ destination.name }}
                     </Button>
+                </template>
+            </div>
+            <div v-else class="mb-72 grid gap-4 overflow-scroll p-5">
+                <template v-for="fp in floorPlans" :key="fp.id">
+                    <div>
+                        <div class="my-2 bg-primary px-2 text-white">
+                            <h1 class="text-lg font-semibold uppercase">{{ fp.name }}</h1>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <template v-for="destination in fp.destinations" :key="destination.id">
+                                <Button
+                                    @click="selectDestination(destination.id, destination.floor_plan_id, destination.text_redirection)"
+                                    variant="secondary"
+                                    size="lg"
+                                    class="text-md h-16 border wrap-break-word"
+                                >
+                                    {{ destination.name }}
+                                </Button>
+                            </template>
+                        </div>
+                    </div>
                 </template>
             </div>
             <div class="absolute bottom-0 flex w-full items-center">
